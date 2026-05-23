@@ -48,7 +48,8 @@ const controls = {
   iconOptions: document.querySelector("#iconOptions"),
   whatsappBtn: document.querySelector("#whatsappBtn"),
   resetLayoutBtn: document.querySelector("#resetLayoutBtn"),
-  deleteSelectedBtn: document.querySelector("#deleteSelectedBtn")
+  deleteSelectedBtn: document.querySelector("#deleteSelectedBtn"),
+  mobileTextEditor: document.querySelector("#mobileTextEditor")
 };
 
 let queued = false;
@@ -64,6 +65,7 @@ function init() {
   hydrateBorders();
   hydrateIcons();
   syncControlsFromState();
+  syncMobileTextEditor();
   bindInputs();
   bindCanvasEditing();
   resizeCanvas();
@@ -262,6 +264,18 @@ function bindInputs() {
     state.icons = [{ id: "icon-1", iconId: "ganesh", x: 0.17, y: 0.5, size: 0.2, color: state.accentColor }];
     state.activeId = state.texts[0].id;
     idCounter = 2;
+    syncMobileTextEditor();
+    scheduleRender();
+  });
+
+  controls.mobileTextEditor.addEventListener("input", (event) => {
+    let text = activeText();
+    if (!text) {
+      text = createText("", 0.5, 0.5, 42);
+      state.texts.push(text);
+      state.activeId = text.id;
+    }
+    text.text = event.target.value;
     scheduleRender();
   });
 
@@ -295,6 +309,7 @@ function bindCanvasEditing() {
       state.activeId = text.id;
       syncActiveControls();
     }
+    focusMobileTextEditor(event);
     scheduleRender();
   });
 
@@ -337,10 +352,29 @@ function bindCanvasEditing() {
       deleteSelected();
       event.preventDefault();
     }
+    syncMobileTextEditor();
     scheduleRender();
   });
 }
 
+function syncMobileTextEditor() {
+  if (!controls.mobileTextEditor) return;
+  const text = activeText();
+  controls.mobileTextEditor.value = text?.text || "";
+  controls.mobileTextEditor.disabled = !text;
+}
+
+function focusMobileTextEditor(event) {
+  if (!controls.mobileTextEditor || !activeText()) return;
+  const shouldUseMobileEditor = event.pointerType === "touch" || window.matchMedia("(max-width: 680px)").matches;
+  if (!shouldUseMobileEditor) return;
+  syncMobileTextEditor();
+  requestAnimationFrame(() => {
+    controls.mobileTextEditor.focus();
+    const end = controls.mobileTextEditor.value.length;
+    controls.mobileTextEditor.setSelectionRange(end, end);
+  });
+}
 function createText(text, x, y, size) {
   return {
     id: `text-${idCounter++}`,
@@ -367,6 +401,7 @@ function syncActiveControls() {
     controls.accentColor.value = icon.color || state.accentColor;
     controls.objectSize.value = Math.round(icon.size * 200);
   }
+  syncMobileTextEditor();
 }
 
 function updateSizeFromFields() {
@@ -424,6 +459,7 @@ function deleteSelected() {
   state.texts = state.texts.filter((item) => item.id !== state.activeId);
   state.icons = state.icons.filter((item) => item.id !== state.activeId);
   state.activeId = state.texts[0]?.id || state.icons[0]?.id || null;
+  syncMobileTextEditor();
   scheduleRender();
 }
 

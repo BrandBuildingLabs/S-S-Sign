@@ -128,6 +128,32 @@ canvas {
   filter: drop-shadow(0 28px 36px rgba(34, 28, 20, 0.24));
 }
 
+.mobile-text-editor {
+  display: none;
+  gap: 7px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.mobile-text-editor textarea {
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  outline: none;
+}
+
+.mobile-text-editor textarea:focus {
+  border-color: rgba(199, 154, 56, 0.88);
+  box-shadow: 0 0 0 3px rgba(199, 154, 56, 0.14);
+}
 .preview-tools,
 .size-row,
 .color-grid {
@@ -310,6 +336,10 @@ input[type="color"] {
 
   .primary-action {
     width: 100%;
+  }
+
+  .mobile-text-editor {
+    display: grid;
   }
 
   .canvas-wrap {
