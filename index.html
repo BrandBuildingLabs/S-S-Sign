@@ -165,6 +165,9 @@
                         <a id="previewProducts" href="preview.html?material=ss-nameplate-silver" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-white/20">
                             Preview products
                         </a>
+                        <a id="createOwnPlate" href="miniCanvas.html?material=ss-nameplate-silver&width=12&height=12&unit=in" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-amber-500 px-3 py-2 text-sm font-semibold text-black shadow-lg transition-all hover:bg-amber-400">
+                            Create your own plate
+                        </a>
                         <a id="whatsappQuote" href="https://wa.me/918332099014" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-green-700">
                             Send quote on WhatsApp
                         </a>
@@ -514,6 +517,7 @@
         const quoteOutput = document.getElementById('quote');
         const whatsappQuote = document.getElementById('whatsappQuote');
         const previewProducts = document.getElementById('previewProducts');
+        const createOwnPlate = document.getElementById('createOwnPlate');
         const themeToggle = document.getElementById('themeToggle');
 
         function formatQuote(value) {
@@ -533,6 +537,7 @@
             quoteOutput.textContent = formattedQuote;
             whatsappQuote.href = `https://wa.me/918332099014?text=${encodeURIComponent(message)}`;
             previewProducts.href = `preview.html?material=${encodeURIComponent(materialInput.value)}`;
+            createOwnPlate.href = `miniCanvas.html?material=${encodeURIComponent(materialInput.value)}&width=${encodeURIComponent(length)}&height=${encodeURIComponent(height)}&unit=${encodeURIComponent(unit)}`;
         }
 
         [materialInput, lengthInput, heightInput, unitInput].forEach((field) => {

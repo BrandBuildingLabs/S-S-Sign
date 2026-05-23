@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Nameplate Live Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/miniCanvasstyles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="preview-stage" aria-label="Live nameplate preview">
+      <div class="topbar">
+        <div>
+          <p class="eyebrow">Live Nameplate Studio</p>
+          <h1>Custom Nameplate Preview</h1>
+        </div>
+        <button class="primary-action" id="whatsappBtn" type="button">Whatapp the Preview</button>
+      </div>
+
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="nameplateCanvas" width="1200" height="600" tabindex="0" aria-label="Custom nameplate preview canvas"></canvas>
+      </div>
+
+      <div class="preview-tools" aria-label="Quick layout tools">
+        <button class="tool-btn" id="resetLayoutBtn" type="button">Reset layout</button>
+        <button class="tool-btn" id="deleteSelectedBtn" type="button">Delete selected</button>
+      </div>
+    </section>
+
+    <aside class="controls-panel" aria-label="Nameplate customization controls">
+      <details class="control-group" open>
+        <summary>Font & Color</summary>
+        <label>
+          <span>Font Style</span>
+          <select id="fontSelect"></select>
+        </label>
+        <div class="color-grid">
+          <label>
+            <span>Text Color</span>
+            <input id="textColor" type="color" value="#f4c96b">
+          </label>
+          <label>
+            <span>Accent Color</span>
+            <input id="accentColor" type="color" value="#e8b647">
+          </label>
+        </div>
+        <label>
+          <span>Selected Object Size</span>
+          <input id="objectSize" type="range" min="12" max="120" step="1" value="54">
+        </label>
+      </details>
+
+      <details class="control-group" open>
+        <summary>Material</summary>
+        <div class="option-grid material-grid" id="materialOptions"></div>
+      </details>
+
+      <details class="control-group" open>
+        <summary>Size</summary>
+        <div class="color-grid">
+          <label>
+            <span>Width</span>
+            <input id="plateWidth" type="number" min="1" max="500" step="0.01" value="18">
+          </label>
+          <label>
+            <span>Height</span>
+            <input id="plateHeight" type="number" min="1" max="500" step="0.01" value="8">
+          </label>
+        </div>
+        <label>
+          <span>Measurement</span>
+          <select id="measurementUnit">
+            <option value="in">inch</option>
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+            <option value="ft">feet</option>
+            <option value="mm">mm</option>
+          </select>
+          </label>
+      </details>
+
+      <details class="control-group" open>
+        <summary>Borders</summary>
+        <div class="option-grid border-grid" id="borderOptions"></div>
+      </details>
+
+      <details class="control-group" open>
+        <summary>Icons</summary>
+        <div class="option-grid icon-grid" id="iconOptions"></div>
+      </details>
+    </aside>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
