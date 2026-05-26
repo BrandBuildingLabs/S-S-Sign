@@ -104,6 +104,7 @@ h1 {
 }
 
 .canvas-wrap {
+  position: relative;
   display: grid;
   place-items: center;
   flex: 1;
@@ -117,6 +118,34 @@ h1 {
     linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
     #ebe5dc;
   background-size: 28px 28px;
+}
+
+
+.canvas-wrap::after {
+  content: "S S SIGN PREVIEW";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  color: rgba(32, 28, 24, 0.22);
+  font-size: clamp(1.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-18deg);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.34);
+  z-index: 2;
+}
+
+.canvas-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(-28deg, transparent 0 72px, rgba(32, 28, 24, 0.08) 72px 74px, transparent 74px 144px);
+  z-index: 1;
 }
 
 canvas {

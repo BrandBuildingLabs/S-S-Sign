@@ -5,6 +5,7 @@ import { materials, NameplateRenderer } from "./render.js";
 
 const canvas = document.querySelector("#nameplateCanvas");
 const renderer = new NameplateRenderer(canvas);
+canvas.addEventListener("contextmenu", (event) => event.preventDefault());
 
 const state = {
   font: "Cinzel",
@@ -430,13 +431,37 @@ function scheduleRender() {
   });
 }
 
+function drawExportWatermark() {
+  const ctx = canvas.getContext("2d");
+  const stepX = Math.max(260, canvas.width * 0.32);
+  const stepY = Math.max(160, canvas.height * 0.28);
+  const fontSize = Math.max(28, canvas.width * 0.045);
+  ctx.save();
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  ctx.rotate(-Math.PI / 8);
+  ctx.font = `800 ${fontSize}px Inter, Arial, sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = "rgba(255, 255, 255, 0.32)";
+  ctx.strokeStyle = "rgba(32, 28, 24, 0.2)";
+  ctx.lineWidth = Math.max(1, fontSize * 0.035);
+  for (let x = -canvas.width; x <= canvas.width; x += stepX) {
+    for (let y = -canvas.height; y <= canvas.height; y += stepY) {
+      ctx.strokeText("S S SIGN PREVIEW", x, y);
+      ctx.fillText("S S SIGN PREVIEW", x, y);
+    }
+  }
+  ctx.restore();
+}
 function exportToWhatsapp() {
   renderer.render(state);
+  drawExportWatermark();
   const imageUrl = canvas.toDataURL("image/png");
   const link = document.createElement("a");
   link.href = imageUrl;
   link.download = `nameplate-preview-${Date.now()}.png`;
   link.click();
+  scheduleRender();
 
   const orderJson = {
     text: state.texts.map((item) => item.text).filter(Boolean),
