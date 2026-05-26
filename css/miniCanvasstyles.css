@@ -195,6 +195,20 @@ canvas {
   padding: 0 14px;
 }
 
+.mobile-resize-control {
+  display: none;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.mobile-resize-control input {
+  width: 100%;
+  accent-color: #c79a38;
+}
+
+
 .is-active {
   border-color: rgba(199, 154, 56, 0.75);
   background: #fff8e8;
@@ -369,6 +383,16 @@ input[type="color"] {
 
   .mobile-text-editor {
     display: grid;
+  }
+
+  .preview-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mobile-resize-control {
+    display: grid;
+    grid-column: 1 / -1;
   }
 
   .canvas-wrap {

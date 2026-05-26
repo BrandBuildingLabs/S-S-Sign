@@ -530,6 +530,21 @@
     ]
   }
 };
+        catalog["ss-nameplate-rosegold"] = {
+            ...catalog["ss-nameplate-gold"],
+            title: "Rose Gold Stainless Steel Nameplates",
+            subtitle: "Rose gold engraved stainless steel nameplate designs for premium residential and business entrances."
+        };
+        catalog["ss-nameplate-rosegold_em"] = {
+            ...catalog["ss-nameplate-gold_em"],
+            title: "Rose Gold Embossed Nameplates",
+            subtitle: "Rose gold embossed stainless steel nameplate references with raised premium finishing."
+        };
+        catalog["ss-letters-rosegold"] = {
+            ...catalog["ss-letters-gold"],
+            title: "Rose Gold Stainless Steel Letters",
+            subtitle: "Rose gold 3D steel letter signage for residences, shops, offices, and building names."
+        };
         const params = new URLSearchParams(window.location.search);
         let currentMaterial = params.get('material') || 'ss-nameplate-silver';
         if (!catalog[currentMaterial]) currentMaterial = 'ss-nameplate-silver';

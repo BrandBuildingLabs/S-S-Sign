@@ -17,11 +17,12 @@ const state = {
   width: 18,
   height: 8,
   unit: "in",
+  estimatorMaterial: "ss-nameplate-gold",
   activeId: "text-main",
   texts: [
     {
       id: "text-main",
-      text: "Naseer Ahmed",
+      text: "Enter Name Here",
       x: 0.5,
       y: 0.5,
       size: 54,
@@ -34,6 +35,22 @@ const state = {
   icons: [
     { id: "icon-1", iconId: "ganesh", x: 0.17, y: 0.5, size: 0.2, color: "#6f4810" }
   ]
+};
+
+const estimatorRates = {
+  "ss-nameplate-silver": { label: "Stainless Steel Silver nameplate", rate: 1150 / 144 },
+  "ss-nameplate-silver_em": { label: "Stainless Steel Silver nameplate with embossing", rate: 1350 / 144 },
+  "ss-letters-silver": { label: "Stainless Steel Silver Letters", rate: 540 / 60 },
+  "ss-nameplate-rosegold": { label: "Stainless Steel Rose Gold nameplate", rate: (1150 / 144) * 2 },
+  "ss-nameplate-rosegold_em": { label: "Stainless Steel Rose Gold nameplate with embossing", rate: (1350 / 144) * 2 },
+  "ss-letters-rosegold": { label: "Stainless Steel Rose Gold Letters", rate: (540 / 60) * 2 },
+  "ss-nameplate-gold": { label: "Stainless Steel Gold nameplate", rate: 1500 / 108 },
+  "ss-nameplate-gold_em": { label: "Stainless Steel Gold nameplate with embossing", rate: 1850 / 108 },
+  "ss-letters-gold": { label: "Stainless Steel Gold Letters", rate: 760 / 60 },
+  "acrylic-nameplate": { label: "Acrylic 8mm nameplate", rate: 1500 / 144 },
+  "granite-board": { label: "Black granite stone board", rate: 1000 / 144 },
+  "granite-board-em": { label: "Black granite embossed board", rate: 800 / 144 },
+  "white-board": { label: "White marble engraved board", rate: 2000 / 144 }
 };
 
 const controls = {
@@ -50,7 +67,8 @@ const controls = {
   whatsappBtn: document.querySelector("#whatsappBtn"),
   resetLayoutBtn: document.querySelector("#resetLayoutBtn"),
   deleteSelectedBtn: document.querySelector("#deleteSelectedBtn"),
-  mobileTextEditor: document.querySelector("#mobileTextEditor")
+  mobileTextEditor: document.querySelector("#mobileTextEditor"),
+  mobileObjectSize: document.querySelector("#mobileObjectSize")
 };
 
 let queued = false;
@@ -83,6 +101,7 @@ function applyEstimatorDefaults() {
   const width = Number(params.get("width"));
   const height = Number(params.get("height"));
   const unit = params.get("unit") || "in";
+  state.estimatorMaterial = material || state.estimatorMaterial;
   const mappedMaterial = mapEstimatorMaterial(material);
 
   if (mappedMaterial) {
@@ -104,6 +123,9 @@ function applyEstimatorDefaults() {
 
 function mapEstimatorMaterial(material) {
   if (!material) return null;
+  if (material.includes("rosegold")) {
+    return { material: "roseGold", textColor: "#3a211c", accentColor: "#a76052", border: "royal" };
+  }
   if (material.includes("gold")) {
     return { material: "ssGold", textColor: "#2b2113", accentColor: "#6f4810", border: "royal" };
   }
@@ -141,7 +163,7 @@ function syncControlsFromState() {
   controls.fontSelect.value = state.font;
   controls.textColor.value = state.textColor;
   controls.accentColor.value = state.accentColor;
-  controls.objectSize.value = Math.round(state.texts[0].size);
+  updateObjectSizeControls(Math.round(state.texts[0].size));
   controls.plateWidth.value = fromInches(state.width, state.unit);
   controls.plateHeight.value = fromInches(state.height, state.unit);
   controls.measurementUnit.value = state.unit;
@@ -209,14 +231,8 @@ function bindInputs() {
     scheduleRender();
   }, 40));
 
-  controls.objectSize.addEventListener("input", (event) => {
-    const value = Number(event.target.value);
-    const text = activeText();
-    const icon = activeIcon();
-    if (text) text.size = clamp(value, 14, 140);
-    if (icon) icon.size = clamp(value / 200, 0.06, 0.55);
-    scheduleRender();
-  });
+  controls.objectSize.addEventListener("input", (event) => updateSelectedObjectSize(Number(event.target.value)));
+  controls.mobileObjectSize?.addEventListener("input", (event) => updateSelectedObjectSize(Number(event.target.value)));
 
   controls.plateWidth.addEventListener("input", debounce(updateSizeFromFields, 80));
   controls.plateHeight.addEventListener("input", debounce(updateSizeFromFields, 80));
@@ -261,7 +277,7 @@ function bindInputs() {
   });
 
   controls.resetLayoutBtn.addEventListener("click", () => {
-    state.texts = [createText("Naseer Ahmed", 0.5, 0.5, 54)];
+    state.texts = [createText("Enter Name Here", 0.5, 0.5, 54)];
     state.icons = [{ id: "icon-1", iconId: "ganesh", x: 0.17, y: 0.5, size: 0.2, color: state.accentColor }];
     state.activeId = state.texts[0].id;
     idCounter = 2;
@@ -390,17 +406,31 @@ function createText(text, x, y, size) {
   };
 }
 
+
+function updateSelectedObjectSize(value) {
+  const text = activeText();
+  const icon = activeIcon();
+  if (text) text.size = clamp(value, 14, 140);
+  if (icon) icon.size = clamp(value / 200, 0.06, 0.55);
+  updateObjectSizeControls(value);
+  scheduleRender();
+}
+
+function updateObjectSizeControls(value) {
+  controls.objectSize.value = value;
+  if (controls.mobileObjectSize) controls.mobileObjectSize.value = value;
+}
 function syncActiveControls() {
   const text = activeText();
   const icon = activeIcon();
   if (text) {
     controls.fontSelect.value = text.font;
     controls.textColor.value = text.color;
-    controls.objectSize.value = Math.round(text.size);
+    updateObjectSizeControls(Math.round(text.size));
   }
   if (icon) {
     controls.accentColor.value = icon.color || state.accentColor;
-    controls.objectSize.value = Math.round(icon.size * 200);
+    updateObjectSizeControls(Math.round(icon.size * 200));
   }
   syncMobileTextEditor();
 }
@@ -453,6 +483,24 @@ function drawExportWatermark() {
   }
   ctx.restore();
 }
+
+function estimatePreviewQuote() {
+  const selectedMaterial = estimatorRates[state.estimatorMaterial] || estimatorRates[materialRateFallbackKey()];
+  const quote = selectedMaterial ? selectedMaterial.rate * state.width * state.height : 0;
+  return {
+    label: selectedMaterial?.label || materials[state.material].name,
+    quote,
+    formattedQuote: `Rs ${Math.round(quote).toLocaleString("en-IN")}`
+  };
+}
+
+function materialRateFallbackKey() {
+  if (state.material === "roseGold") return "ss-nameplate-rosegold";
+  if (state.material === "ssGold") return "ss-nameplate-gold";
+  if (state.material === "ssSilver") return "ss-nameplate-silver";
+  if (state.material === "acrylicWhite") return "white-board";
+  return "acrylic-nameplate";
+}
 function exportToWhatsapp() {
   renderer.render(state);
   drawExportWatermark();
@@ -463,20 +511,25 @@ function exportToWhatsapp() {
   link.click();
   scheduleRender();
 
+  const estimate = estimatePreviewQuote();
+
   const orderJson = {
     text: state.texts.map((item) => item.text).filter(Boolean),
     font: state.font,
     border: readableBorder(),
-    material: materials[state.material].name,
+    material: estimate.label,
     icons: state.icons.map((item) => iconName(item.iconId)),
     colors: {
       text: state.textColor,
       accent: state.accentColor
     },
-    size: `${state.width}x${state.height} in`
+    size: `${state.width}x${state.height} in`,
+    estimatedQuote: estimate.formattedQuote
   };
-  const message = `Nameplate preview generated. Please attach the downloaded PNG image.\n\n${JSON.stringify(orderJson, null, 2)}`;
-  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+
+  const message = `Nameplate preview generated.\nPlease attach the downloaded PNG image.\n\n${JSON.stringify(orderJson, null, 2)}
+  \nEstimated quote: ${estimate.formattedQuote}.\n`;
+  window.open(`https://wa.me/918332099014?text=${encodeURIComponent(message)}`, "_blank", "noopener");
 }
 
 function deleteSelected() {
