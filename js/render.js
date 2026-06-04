@@ -47,9 +47,12 @@ export class NameplateRenderer {
     this.noisePattern = null;
     this.bounds = new Map();
     this.resizeHandles = new Map();
+    this.iconImages = new Map();
+    this.iconRequests = new Set();
     this.lastPlate = null;
     this.dragTarget = null;
     this.showCaret = true;
+    this.onIconReady = null;
   }
 
   resize(cssWidth, aspect) {
@@ -169,19 +172,21 @@ export class NameplateRenderer {
 
   drawIcon(ctx, plate, state, item) {
     const icon = iconById(item.iconId);
-    if (!icon.path) return;
+    if (!icon?.svg) return;
     const size = Math.min(plate.w, plate.h) * item.size;
     const x = plate.x + item.x * plate.w;
     const y = plate.y + item.y * plate.h;
-    const path = new Path2D(icon.path);
+    const color = item.color || state.accentColor;
+    const image = this.getIconImage(icon, color);
 
     ctx.save();
-    ctx.translate(x - size / 2, y - size / 2);
-    ctx.scale(size / 100, size / 100);
     ctx.shadowColor = "rgba(0,0,0,0.26)";
     ctx.shadowBlur = 5 * this.pixelRatio;
-    ctx.fillStyle = item.color || state.accentColor;
-    ctx.fill(path);
+    if (image?.complete && image.naturalWidth > 0) {
+      ctx.drawImage(image, x - size / 2, y - size / 2, size, size);
+    } else {
+      this.drawIconPlaceholder(ctx, x, y, size, color);
+    }
     ctx.restore();
 
     this.bounds.set(item.id, { type: "icon", x: x - size / 2, y: y - size / 2, w: size, h: size });
@@ -189,6 +194,52 @@ export class NameplateRenderer {
       const handle = this.drawSelection(ctx, x - size / 2, y - size / 2, size, size);
       this.resizeHandles.set(item.id, handle);
     }
+  }
+
+  getIconImage(icon, color) {
+    const key = `${icon.id}|${color}`;
+    if (this.iconImages.has(key)) return this.iconImages.get(key);
+    if (this.iconRequests.has(key)) return null;
+
+    this.iconRequests.add(key);
+    fetch(icon.svg)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Unable to load ${icon.svg}`);
+        return response.text();
+      })
+      .then((svgText) => {
+        const coloredSvg = colorizeSvg(svgText, color);
+        const blob = new Blob([coloredSvg], { type: "image/svg+xml" });
+        const url = URL.createObjectURL(blob);
+        const image = new Image();
+        image.onload = () => {
+          URL.revokeObjectURL(url);
+          this.iconImages.set(key, image);
+          this.iconRequests.delete(key);
+          this.onIconReady?.();
+        };
+        image.onerror = () => {
+          URL.revokeObjectURL(url);
+          this.iconRequests.delete(key);
+        };
+        image.src = url;
+      })
+      .catch(() => {
+        this.iconRequests.delete(key);
+      });
+
+    return null;
+  }
+
+  drawIconPlaceholder(ctx, x, y, size, color) {
+    ctx.save();
+    ctx.globalAlpha = 0.58;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = Math.max(2, size * 0.06);
+    ctx.beginPath();
+    ctx.arc(x, y, size * 0.32, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
   }
 
   drawSelection(ctx, x, y, w, h) {
@@ -361,4 +412,16 @@ function createNoisePattern(ctx) {
   }
   nctx.putImageData(data, 0, 0);
   return ctx.createPattern(noise, "repeat");
+}
+
+function colorizeSvg(svgText, color) {
+  return svgText
+    .replace(/<!DOCTYPE[\s\S]*?>/gi, "")
+    .replace(/currentColor/g, color)
+    .replace(/fill="(?!none|transparent)[^"]*"/gi, `fill="${color}"`)
+    .replace(/stroke="(?!none|transparent)[^"]*"/gi, `stroke="${color}"`)
+    .replace(/fill:(?!none|transparent)[^;"}]+/gi, `fill:${color}`)
+    .replace(/stroke:(?!none|transparent)[^;"}]+/gi, `stroke:${color}`)
+    .replace(/\.st\d+\{fill:(?!none|transparent)[^;}]+/gi, (match) => match.replace(/fill:[^;}]+/i, `fill:${color}`))
+    .replace(/\.st\d+\{stroke:(?!none|transparent)[^;}]+/gi, (match) => match.replace(/stroke:[^;}]+/i, `stroke:${color}`));
 }

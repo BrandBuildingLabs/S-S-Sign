@@ -1,10 +1,11 @@
 import { fonts } from "./fonts.js";
 import { borders, borderThumbnail } from "./borders.js";
-import { icons, iconSvg } from "./miniCanvasicons.js";
+import { iconCategories, icons, iconsByCategory, iconSvgPreview } from "./miniCanvasicons.js";
 import { materials, NameplateRenderer } from "./render.js";
 
 const canvas = document.querySelector("#nameplateCanvas");
 const renderer = new NameplateRenderer(canvas);
+renderer.onIconReady = scheduleRender;
 canvas.addEventListener("contextmenu", (event) => event.preventDefault());
 
 const state = {
@@ -18,6 +19,7 @@ const state = {
   height: 8,
   unit: "in",
   estimatorMaterial: "ss-nameplate-gold",
+  iconCategory: "All",
   activeId: "text-main",
   texts: [
     {
@@ -33,7 +35,7 @@ const state = {
     }
   ],
   icons: [
-    { id: "icon-1", iconId: "ganesh", x: 0.17, y: 0.5, size: 0.2, color: "#6f4810" }
+    { id: "icon-1", iconId: "hindu-symbol", x: 0.17, y: 0.5, size: 0.2, color: "#6f4810" }
   ]
 };
 
@@ -63,6 +65,7 @@ const controls = {
   measurementUnit: document.querySelector("#measurementUnit"),
   materialOptions: document.querySelector("#materialOptions"),
   borderOptions: document.querySelector("#borderOptions"),
+  iconCategoryFilters: document.querySelector("#iconCategoryFilters"),
   iconOptions: document.querySelector("#iconOptions"),
   whatsappBtn: document.querySelector("#whatsappBtn"),
   resetLayoutBtn: document.querySelector("#resetLayoutBtn"),
@@ -82,6 +85,7 @@ function init() {
   hydrateFonts();
   hydrateMaterials();
   hydrateBorders();
+  hydrateIconCategoryFilters();
   hydrateIcons();
   syncControlsFromState();
   syncMobileTextEditor();
@@ -193,10 +197,18 @@ function hydrateBorders() {
   `).join("");
 }
 
+function hydrateIconCategoryFilters() {
+  controls.iconCategoryFilters.innerHTML = iconCategories.map((category) => `
+    <button class="category-filter ${category === state.iconCategory ? "is-active" : ""}" data-icon-category="${category}" type="button">
+      ${category}
+    </button>
+  `).join("");
+}
+
 function hydrateIcons() {
-  controls.iconOptions.innerHTML = icons.filter((icon) => icon.id !== "none").map((icon) => `
-    <button class="option-card" data-icon="${icon.id}" type="button">
-      <span class="thumb">${iconSvg(icon, state.accentColor)}</span>
+  controls.iconOptions.innerHTML = iconsByCategory(state.iconCategory).map((icon) => `
+    <button class="option-card" data-icon="${icon.id}" type="button" title="${icon.name}">
+      <span class="thumb">${iconSvgPreview(icon, state.accentColor)}</span>
       <span class="option-title">${icon.name}</span>
     </button>
   `).join("");
@@ -230,6 +242,14 @@ function bindInputs() {
     hydrateIcons();
     scheduleRender();
   }, 40));
+
+  controls.iconCategoryFilters.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-icon-category]");
+    if (!button) return;
+    state.iconCategory = button.dataset.iconCategory;
+    setActive("[data-icon-category]", button);
+    hydrateIcons();
+  });
 
   controls.objectSize.addEventListener("input", (event) => updateSelectedObjectSize(Number(event.target.value)));
   controls.mobileObjectSize?.addEventListener("input", (event) => updateSelectedObjectSize(Number(event.target.value)));
@@ -278,7 +298,7 @@ function bindInputs() {
 
   controls.resetLayoutBtn.addEventListener("click", () => {
     state.texts = [createText("Enter Name Here", 0.5, 0.5, 54)];
-    state.icons = [{ id: "icon-1", iconId: "ganesh", x: 0.17, y: 0.5, size: 0.2, color: state.accentColor }];
+    state.icons = [{ id: "icon-1", iconId: "hindu-symbol", x: 0.17, y: 0.5, size: 0.2, color: state.accentColor }];
     state.activeId = state.texts[0].id;
     idCounter = 2;
     syncMobileTextEditor();
