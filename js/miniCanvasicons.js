@@ -72,7 +72,41 @@ export const icons = [
     name: "India Building",
     category: "Buildings",
     svg: "iconsNameplate/india-svgrepo-com.svg"
-  }
+  },
+
+  // flowers
+  {
+    id: "flower-1",
+    name: "Flower 1",
+    category: "Flowers",
+    svg: "iconsNameplate/flowers/flower-1-svgrepo-com.svg"
+  },
+  {
+    id: "flower-2",
+    name: "Flower 2",
+    category: "Flowers",
+    svg: "iconsNameplate/flowers/flower-2-svgrepo-com.svg"
+  },
+  {
+    id: "flower-3",
+    name: "Flower 3",
+    category: "Flowers",
+    svg: "iconsNameplate/flowers/flower-3-svgrepo-com.svg"
+  },
+  {
+    id: "flower-4",
+    name: "Flower 4",
+    category: "Flowers",
+    svg: "iconsNameplate/flowers/flower-4-svgrepo-com.svg"
+  },
+  {
+    id: "flower-5",
+    name: "Flower 5",
+    category: "Flowers",
+    svg: "iconsNameplate/flowers/flower-5-svgrepo-com.svg"
+  } 
+
+
 ];
 
 export function iconById(id) {

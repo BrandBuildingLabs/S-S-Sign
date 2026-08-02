@@ -8,6 +8,7 @@
     <meta name="keywords" content="S S SIGN Hyderabad, stainless steel nameplates Hyderabad, steel letters Hyderabad, LED sign boards Hyderabad, foundation stones Hyderabad, acrylic nameplates, granite stone board, custom signage Telangana">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -19,79 +20,10 @@
             "url": "https://naseer-max.github.io/ssSign.github.io/"
         }
     </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; transition: background-color 0.3s ease, color 0.3s ease; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .steel-gradient { background: linear-gradient(145deg, #e0e0e0, #888888); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .form-control { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; }
-        .form-control:focus { outline: 2px solid rgba(96, 165, 250, 0.7); outline-offset: 2px; border-color: rgba(96, 165, 250, 0.9); }
-        .form-control option { background-color: #18181b; color: #ffffff; }
-        .image-track { animation: scroll-gallery 28s linear infinite; }
-        .gallery-strip:hover .image-track { animation-play-state: paused; }
-        .gallery-image { width: 17rem; height: 12rem; object-fit: cover; flex: 0 0 auto; }
-        .product-slider { position: relative; height: 12rem; overflow: hidden; }
-        .product-track { height: 100%; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-        .product-track::-webkit-scrollbar { display: none; }
-        .product-slide { width: 100%; height: 100%; flex: 0 0 100%; object-fit: cover; scroll-snap-align: center; }
-        .slider-dots { position: absolute; left: 0; right: 0; bottom: 0.55rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.28rem; row-gap: 0.2rem; padding: 0 2.6rem; z-index: 1; pointer-events: none; }
-        .slider-dot { width: 0.32rem; height: 0.32rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); }
-        .slider-button { display: none; position: absolute; top: 50%; z-index: 2; width: 2rem; height: 2rem; transform: translateY(-50%); border-radius: 9999px; background: rgba(10, 10, 10, 0.58); color: #ffffff; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; transition: background-color 0.2s ease, transform 0.2s ease; }
-        .slider-button:hover { background: rgba(10, 10, 10, 0.82); transform: translateY(-50%) scale(1.06); }
-        .slider-button.prev { left: 0.6rem; }
-        .slider-button.next { right: 0.6rem; }
-        @media (min-width: 768px) { .slider-button { display: inline-flex; } }
-        .section-muted { color: #a3a3a3; }
-        .icon-button { width: 3rem; height: 3rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.08); color: #ffffff; transition: transform 0.2s ease, background-color 0.2s ease; }
-        .icon-button:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
-        .theme-toggle { width: 3.8rem; height: 2.35rem; display: inline-flex; align-items: center; justify-content: center; color: #facc15; position: relative; overflow: hidden; }
-        .theme-toggle::after { content: ""; position: absolute; left: 0.28rem; top: 0.28rem; width: 1.78rem; height: 1.78rem; border-radius: 0.65rem; background: rgba(255, 255, 255, 0.18); transition: transform 0.32s ease, background-color 0.32s ease; }
-        .theme-icon { position: absolute; z-index: 1; width: 1.05rem; height: 1.05rem; transition: opacity 0.25s ease, transform 0.35s ease; }
-        .sun-icon { opacity: 1; transform: translateX(-0.75rem) rotate(0deg) scale(1); }
-        .moon-icon { opacity: 0.45; transform: translateX(0.75rem) rotate(-25deg) scale(0.82); color: #dbeafe; }
-        .theme-toggle:hover .sun-icon { transform: translateX(-0.75rem) rotate(18deg) scale(1.08); }
-        .theme-toggle:hover .moon-icon { transform: translateX(0.75rem) rotate(-8deg) scale(0.9); }
-        .theme-toggle.slide .theme-icon,
-        .theme-toggle.slide::after { animation: theme-slide 0.45s ease; }
-
-        body.day-mode { background-color: #f7f7f2; color: #151515; }
-        body.day-mode .glass { background: rgba(255, 255, 255, 0.78); border-color: rgba(15, 23, 42, 0.12); box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12); }
-        body.day-mode .steel-gradient { background: linear-gradient(145deg, #111827, #737373); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        body.day-mode .form-control { background: rgba(255, 255, 255, 0.92); border-color: rgba(15, 23, 42, 0.18); color: #111827; }
-        body.day-mode .form-control option { background-color: #ffffff; color: #111827; }
-        body.day-mode header .text-gray-400 { color: #525252; }
-        body.day-mode header .text-gray-300 { color: #3f3f46; }
-        body.day-mode header .text-white { color: #111827; }
-        body.day-mode header .bg-green-600,
-        body.day-mode .fixed .bg-green-600 { color: #ffffff; }
-        body.day-mode .text-blue-400 { color: #2563eb; }
-        body.day-mode #themeToggle { background: rgba(17, 24, 39, 0.9); border-color: rgba(17, 24, 39, 0.18); color: #ffffff; }
-        body.day-mode #themeToggle::after { transform: translateX(1.48rem); background: rgba(255, 255, 255, 0.22); }
-        body.day-mode .sun-icon { opacity: 0.45; transform: translateX(-0.75rem) rotate(30deg) scale(0.82); color: #facc15; }
-        body.day-mode .moon-icon { opacity: 1; transform: translateX(0.75rem) rotate(0deg) scale(1); }
-        body.day-mode .section-muted { color: #525252; }
-        body.day-mode .icon-button { background: rgba(17, 24, 39, 0.06); border-color: rgba(17, 24, 39, 0.16); color: #111827; }
-        body.day-mode .slider-button { background: rgba(17, 24, 39, 0.68); color: #ffffff; }
-
-        @keyframes scroll-gallery {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
-
-        @keyframes theme-slide {
-            0% { filter: brightness(1); }
-            45% { filter: brightness(1.35); }
-            100% { filter: brightness(1); }
-        }
-
-        @media (max-width: 640px) {
-            .gallery-image { width: 13rem; height: 9rem; }
-            .image-track { animation-duration: 22s; }
-        }
-    </style>
 </head>
 <body>
 
-    <header class="relative min-h-screen flex flex-col items-center justify-start md:justify-center text-center px-4 pb-8 pt-16 md:py-12">
+    <header class="site-hero relative flex min-h-screen flex-col overflow-hidden text-white">
         <button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle absolute right-4 top-4 z-10 rounded-xl border border-white/20 bg-white/10 shadow-lg backdrop-blur transition-all hover:bg-white/20 md:right-5 md:top-5">
             <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
@@ -101,88 +33,35 @@
                 <path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
         </button>
-        <h1 class="text-5xl md:text-7xl font-bold mb-4 steel-gradient">S S SIGN</h1>
-        <section class="w-full max-w-6xl mb-10 text-left">
-            <div class="glass w-full max-w-xl rounded-2xl p-5 md:p-6 shadow-2xl">
-                <div class="flex flex-col gap-1 mb-5">
-                    <h2 class="text-2xl md:text-3xl font-bold">Signage Estimator</h2>
-                    <p class="text-sm text-gray-400">Instant quote for custom signage sizes.</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <label class="sm:col-span-3">
-                        <span class="block text-sm font-semibold text-gray-300 mb-2">Material</span>
-                        <select id="material" class="form-control w-full rounded-lg px-4 py-3">
-                            <option value="ss-nameplate-silver">S S Silver nameplate Engraved</option>
-                            <option value="ss-nameplate-silver_em">S S Silver nameplate Embossed</option>
-                            <option value="ss-nameplate-silver-LED">S S Silver nameplate with LED</option>
-                            <option value="ss-letters-silver">S S Silver Letters</option>
-                            <option value="ss-letters-silver-LED">S S Silver Letters with LED</option>
-                            <option value="ss-nameplate-rosegold">S S Rose Gold nameplate Engraved</option>
-                            <option value="ss-nameplate-rosegold_em">S S Rose Gold nameplate Embossed</option>
-                            <option value="ss-letters-rosegold">S S Rose Gold Letters</option>
-
-
-                            <option value="ss-nameplate-gold">S S Gold nameplate Engraved</option>
-                            <option value="ss-nameplate-gold_em">S S Gold nameplate Embossed</option>
-                            <option value="ss-nameplate-gold-LED">S S Gold nameplate with LED</option>
-                            <option value="ss-letters-gold">S S Gold Letters</option>
-                            <option value="ss-letters-gold-LED">S S Gold Let
-                                ters with LED</option>
-
-                            <option value="acrylic-nameplate">Acrylic 8mm nameplate</option>
-                            <option value="granite-board">Black granite Engraved</option>
-                            <option value="granite-board-em">Black granite Embossed</option>
-                            <option value="white-board">White Marble Engraved</option>
-                        </select>
-                    </label>
-
-                    <label>
-                        <span class="block text-sm font-semibold text-gray-300 mb-2">Length (Horizontal)</span>
-                        <input id="length" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Length">
-                    </label>
-
-                    <label>
-                        <span class="block text-sm font-semibold text-gray-300 mb-2">Height (Vertical)</span>
-                        <input id="height" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Height">
-                    </label>
-
-                    <label>
-                        <span class="block text-sm font-semibold text-gray-300 mb-2">Measurement</span>
-                        <select id="unit" class="form-control w-full rounded-lg px-4 py-3">
-                            <option value="in">inch</option>
-                            <option value="mm">mm</option>
-                            <option value="cm">cm</option>
-                            <option value="ft">feet</option>
-                            <option value="m">m</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div class="min-w-0 flex-1">
-                        <span class="block text-sm text-gray-400">Estimated Quote</span>
-                        <strong id="quote" class="block whitespace-nowrap text-3xl font-bold text-white md:text-4xl">Rs 1,000</strong>
-                    </div>
-                    <div class="flex w-full flex-col gap-2 sm:w-auto sm:min-w-40">
-                        <a id="previewProducts" href="preview.html?material=ss-nameplate-silver" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-white/20">
-                            Preview products
-                        </a>
-                        <a id="createOwnPlate" href="miniCanvas.html?material=ss-nameplate-silver&width=12&height=12&unit=in" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-amber-500 px-3 py-2 text-sm font-semibold text-black shadow-lg transition-all hover:bg-amber-400">
-                            Create your own plate
-                        </a>
-                        <a id="whatsappQuote" href="https://wa.me/918332099014" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-green-700">
-                            Send quote on WhatsApp
-                        </a>
-                    </div>
+        <a href="index.html" class="mobile-brand">S S SIGN</a>
+        <nav class="site-nav">
+            <a href="index.html" class="nav-brand">S S SIGN</a>
+            <div class="nav-links">
+                <a class="nav-link active" href="#portfolio">Portfolio</a>
+                <a class="nav-link" href="#residential">Residential</a>
+                <a class="nav-link" href="#commercial">Commercial</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
+        </nav>
+        <div class="hero-shell">
+            <div class="hero-copy">
+                <p class="hero-kicker mb-5 text-xs font-bold uppercase text-amber-400 md:mb-7">Precision Crafted</p>
+                <h1 class="hero-title">
+                    <span class="hidden md:inline">Precision Crafted </span><span class="text-amber-500">Premium Signage</span> Solutions
+                </h1>
+                <p class="hero-lede">
+                    Crafting identity through precision and light. We transform architectural visions into tactile, luminous reality.
+                </p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="hero-action hero-primary">Explore Work</a>
+                    <a href="estimator.html" class="hero-action hero-secondary">Request Quote</a>
                 </div>
             </div>
-        </section>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-12">
-            Precision-engineered stainless steel nameplates and architectural lettering for homes and businesses.
-        </p>
+        </div>
+    </header>
 
-        <section class="w-full max-w-6xl mb-12 text-left">
+    <main class="px-4 pb-28 pt-12">
+        <section id="portfolio" class="mx-auto w-full max-w-6xl mb-12 text-left">
             <div class="mb-4 flex items-center justify-between gap-4">
                 <h2 class="text-2xl md:text-3xl font-bold">Recent Signage Work</h2>
                 <span class="text-sm text-gray-400">Featured projects</span>
@@ -207,8 +86,8 @@
             </div>
         </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
-            <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
+        <div class="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+            <div id="residential" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
                     <div class="product-track">
                         <img class="product-slide" src="images/residentail%20Nameplates/20171122_144208.jpg" alt="Residential nameplate design">
@@ -233,7 +112,7 @@
                 <p class="text-gray-400 mb-4">Custom home nameplates with premium stainless steel, gold, silver, and engraved finishes for a polished entrance.</p>
                 <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-            <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
+            <div id="commercial" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
                     <div class="product-track">
                         <img class="product-slide" src="images/goldLetters/20180927_162156.jpg" alt="3D stainless steel letters signage">
@@ -289,7 +168,7 @@
                 <p class="text-gray-400 mb-4">Raised stainless steel letters for shops, offices, apartments, and building fronts with strong visibility.</p>
                 <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
-            <div class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
+            <div id="industrial" class="glass p-8 rounded-2xl hover:scale-105 transition-transform group">
                 <div class="product-slider mb-6 rounded-lg">
                     <div class="product-track">
                         <img class="product-slide" src="images/goldLEDLetters/IMG_20230609_193830.jpg" alt="Industrial signage and LED letters">
@@ -372,10 +251,7 @@
                 <a href="https://www.sssign.top/" class="text-blue-400 hover:underline">Explore Collection →</a>
             </div>
         </div>
-    </header>
-
-    <main class="px-4 pb-28">
-        <section class="mx-auto w-full max-w-6xl py-14 text-left">
+        <section id="process" class="mx-auto w-full max-w-6xl py-14 text-left">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1.2fr_0.8fr]">
                 <div class="glass rounded-2xl p-6 md:p-8">
                     <span class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-400">About S S SIGN</span>
@@ -404,7 +280,7 @@
                     </div>
                 </div>
 
-                <aside class="glass rounded-2xl p-6 md:p-8">
+                <aside id="contact" class="glass rounded-2xl p-6 md:p-8">
                     <span class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-400">Google Reviews</span>
                     <h2 class="mt-3 text-3xl font-bold">Customer Feedback</h2>
                     <p class="mt-4 section-muted">
@@ -571,10 +447,13 @@
             createOwnPlate.href = `miniCanvas.html?material=${encodeURIComponent(materialInput.value)}&width=${encodeURIComponent(length)}&height=${encodeURIComponent(height)}&unit=${encodeURIComponent(unit)}`;
         }
 
-        [materialInput, lengthInput, heightInput, unitInput].forEach((field) => {
-            field.addEventListener('input', updateQuote);
-            field.addEventListener('change', updateQuote);
-        });
+        if (materialInput && lengthInput && heightInput && unitInput && quoteOutput && whatsappQuote && previewProducts && createOwnPlate) {
+            [materialInput, lengthInput, heightInput, unitInput].forEach((field) => {
+                field.addEventListener('input', updateQuote);
+                field.addEventListener('change', updateQuote);
+            });
+            updateQuote();
+        }
 
         document.querySelectorAll('.product-slider').forEach((slider) => {
             const track = slider.querySelector('.product-track');
@@ -598,7 +477,6 @@
             themeToggle.classList.add('slide');
         });
 
-        updateQuote();
     </script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; transition: background-color 0.3s ease, color 0.3s ease; }
+.glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.site-hero { min-height: 100vh; display: flex; flex-direction: column; position: relative; overflow: hidden; color: #ffffff; background-image: linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.68) 48%, rgba(5, 5, 5, 0.36) 100%), url("../latestscroll/goldResidency.jpeg"); background-position: center; background-size: cover; }
+.site-nav { display: none; height: 5rem; align-items: center; padding: 0 2rem; background: rgba(10, 10, 10, 0.88); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.mobile-brand { position: absolute; left: 50%; top: 1.35rem; z-index: 9; transform: translateX(-50%); color: #ffffff; font-size: 1.35rem; font-weight: 800; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; }
+.nav-brand { margin-right: 3rem; color: #ffffff; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 2rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; }
+.nav-link { color: rgba(255, 255, 255, 0.66); transition: color 0.2s ease; }
+.nav-link:hover, .nav-link.active { color: #f59e0b; }
+.hero-kicker { letter-spacing: 0.42em; }
+.hero-shell { flex: 1; display: flex; align-items: center; padding: 7rem 0.75rem 4rem; }
+.hero-copy { max-width: 56rem; text-align: left; }
+.hero-title { max-width: 48rem; font-size: 2rem; line-height: 1.18; font-weight: 700; }
+.hero-lede { max-width: 42rem; margin-top: 1.5rem; color: rgba(255, 255, 255, 0.82); font-size: 1rem; line-height: 1.7; }
+.hero-actions { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.hero-action { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.25rem; padding: 1rem 2rem; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; transition: background-color 0.2s ease; }
+.hero-primary { background: #f59e0b; color: #0a0a0a; }
+.hero-secondary { border: 1px solid rgba(255, 255, 255, 0.34); color: #ffffff; background: rgba(255, 255, 255, 0.02); }
+#themeToggle { position: absolute; right: 1rem; top: 1rem; z-index: 10; }
+.steel-gradient { background: linear-gradient(145deg, #e0e0e0, #888888); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.form-control { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; }
+.form-control:focus { outline: 2px solid rgba(96, 165, 250, 0.7); outline-offset: 2px; border-color: rgba(96, 165, 250, 0.9); }
+.form-control option { background-color: #18181b; color: #ffffff; }
+.image-track { animation: scroll-gallery 28s linear infinite; }
+.gallery-strip:hover .image-track { animation-play-state: paused; }
+.gallery-image { width: 17rem; height: 12rem; object-fit: cover; flex: 0 0 auto; }
+.product-slider { position: relative; height: 12rem; overflow: hidden; }
+.product-track { height: 100%; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.product-track::-webkit-scrollbar { display: none; }
+.product-slide { width: 100%; height: 100%; flex: 0 0 100%; object-fit: cover; scroll-snap-align: center; }
+.slider-dots { position: absolute; left: 0; right: 0; bottom: 0.55rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.28rem; row-gap: 0.2rem; padding: 0 2.6rem; z-index: 1; pointer-events: none; }
+.slider-dot { width: 0.32rem; height: 0.32rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); }
+.slider-button { display: none; position: absolute; top: 50%; z-index: 2; width: 2rem; height: 2rem; transform: translateY(-50%); border-radius: 9999px; background: rgba(10, 10, 10, 0.58); color: #ffffff; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; transition: background-color 0.2s ease, transform 0.2s ease; }
+.slider-button:hover { background: rgba(10, 10, 10, 0.82); transform: translateY(-50%) scale(1.06); }
+.slider-button.prev { left: 0.6rem; }
+.slider-button.next { right: 0.6rem; }
+.section-muted { color: #a3a3a3; }
+.icon-button { width: 3rem; height: 3rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.08); color: #ffffff; transition: transform 0.2s ease, background-color 0.2s ease; }
+.icon-button:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
+.theme-toggle { width: 3.8rem; height: 2.35rem; display: inline-flex; align-items: center; justify-content: center; color: #facc15; position: relative; overflow: hidden; }
+.theme-toggle::after { content: ""; position: absolute; left: 0.28rem; top: 0.28rem; width: 1.78rem; height: 1.78rem; border-radius: 0.65rem; background: rgba(255, 255, 255, 0.18); transition: transform 0.32s ease, background-color 0.32s ease; }
+.theme-icon { position: absolute; z-index: 1; width: 1.05rem; height: 1.05rem; transition: opacity 0.25s ease, transform 0.35s ease; }
+.sun-icon { opacity: 1; transform: translateX(-0.75rem) rotate(0deg) scale(1); }
+.moon-icon { opacity: 0.45; transform: translateX(0.75rem) rotate(-25deg) scale(0.82); color: #dbeafe; }
+.theme-toggle:hover .sun-icon { transform: translateX(-0.75rem) rotate(18deg) scale(1.08); }
+.theme-toggle:hover .moon-icon { transform: translateX(0.75rem) rotate(-8deg) scale(0.9); }
+.theme-toggle.slide .theme-icon,
+.theme-toggle.slide::after { animation: theme-slide 0.45s ease; }
+body.day-mode { background-color: #f7f7f2; color: #151515; }
+body.day-mode .glass { background: rgba(255, 255, 255, 0.78); border-color: rgba(15, 23, 42, 0.12); box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12); }
+body.day-mode .steel-gradient { background: linear-gradient(145deg, #111827, #737373); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+body.day-mode .form-control { background: rgba(255, 255, 255, 0.92); border-color: rgba(15, 23, 42, 0.18); color: #111827; }
+body.day-mode .form-control option { background-color: #ffffff; color: #111827; }
+body.day-mode header .text-gray-400 { color: #525252; }
+body.day-mode header .text-gray-300 { color: #3f3f46; }
+body.day-mode header .text-white { color: #111827; }
+body.day-mode header .bg-green-600,
+body.day-mode .fixed .bg-green-600 { color: #ffffff; }
+body.day-mode .text-blue-400 { color: #2563eb; }
+body.day-mode #themeToggle { background: rgba(17, 24, 39, 0.9); border-color: rgba(17, 24, 39, 0.18); color: #ffffff; }
+body.day-mode #themeToggle::after { transform: translateX(1.48rem); background: rgba(255, 255, 255, 0.22); }
+body.day-mode .sun-icon { opacity: 0.45; transform: translateX(-0.75rem) rotate(30deg) scale(0.82); color: #facc15; }
+body.day-mode .moon-icon { opacity: 1; transform: translateX(0.75rem) rotate(0deg) scale(1); }
+body.day-mode .section-muted { color: #525252; }
+body.day-mode .icon-button { background: rgba(17, 24, 39, 0.06); border-color: rgba(17, 24, 39, 0.16); color: #111827; }
+body.day-mode .slider-button { background: rgba(17, 24, 39, 0.68); color: #ffffff; }
+@keyframes scroll-gallery {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+@keyframes theme-slide {
+    0% { filter: brightness(1); }
+    45% { filter: brightness(1.35); }
+    100% { filter: brightness(1); }
+}
+@media (max-width: 640px) {
+    .site-hero { background-image: linear-gradient(90deg, rgba(5, 5, 5, 0.78), rgba(5, 5, 5, 0.34)), url("../latestscroll/goldResidency.jpeg"); background-position: 58% center; }
+    .gallery-image { width: 13rem; height: 9rem; }
+    .image-track { animation-duration: 22s; }
+}
+@media (min-width: 640px) {
+    .hero-actions { flex-direction: row; }
+}
+@media (min-width: 768px) {
+    .site-nav { display: flex; }
+    .mobile-brand { display: none; }
+    .hero-shell { padding: 5rem 3.5rem 6rem; }
+    .hero-title { font-size: 3.75rem; }
+    .slider-button { display: inline-flex; }
+    #themeToggle { right: 1.25rem; top: 1.25rem; }
+}

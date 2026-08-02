@@ -1,0 +1,30 @@
+body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; transition: background-color 0.3s ease, color 0.3s ease; }
+.glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.form-control { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; }
+.form-control:focus { outline: 2px solid rgba(245, 158, 11, 0.7); outline-offset: 2px; border-color: rgba(245, 158, 11, 0.9); }
+.form-control option { background-color: #18181b; color: #ffffff; }
+.theme-toggle { width: 3.8rem; height: 2.35rem; display: inline-flex; align-items: center; justify-content: center; color: #facc15; position: relative; overflow: hidden; }
+.theme-toggle::after { content: ""; position: absolute; left: 0.28rem; top: 0.28rem; width: 1.78rem; height: 1.78rem; border-radius: 0.65rem; background: rgba(255, 255, 255, 0.18); transition: transform 0.32s ease, background-color 0.32s ease; }
+.theme-icon { position: absolute; z-index: 1; width: 1.05rem; height: 1.05rem; transition: opacity 0.25s ease, transform 0.35s ease; }
+.sun-icon { opacity: 1; transform: translateX(-0.75rem) rotate(0deg) scale(1); }
+.moon-icon { opacity: 0.45; transform: translateX(0.75rem) rotate(-25deg) scale(0.82); color: #dbeafe; }
+.theme-toggle:hover .sun-icon { transform: translateX(-0.75rem) rotate(18deg) scale(1.08); }
+.theme-toggle:hover .moon-icon { transform: translateX(0.75rem) rotate(-8deg) scale(0.9); }
+.theme-toggle.slide .theme-icon,
+.theme-toggle.slide::after { animation: theme-slide 0.45s ease; }
+body.day-mode { background-color: #f7f7f2; color: #151515; }
+body.day-mode .glass { background: rgba(255, 255, 255, 0.82); border-color: rgba(15, 23, 42, 0.12); box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12); }
+body.day-mode .form-control { background: rgba(255, 255, 255, 0.94); border-color: rgba(15, 23, 42, 0.18); color: #111827; }
+body.day-mode .form-control option { background-color: #ffffff; color: #111827; }
+body.day-mode .text-gray-400 { color: #525252; }
+body.day-mode .text-gray-300 { color: #3f3f46; }
+body.day-mode .text-white { color: #111827; }
+body.day-mode #themeToggle { background: rgba(17, 24, 39, 0.9); border-color: rgba(17, 24, 39, 0.18); color: #ffffff; }
+body.day-mode #themeToggle::after { transform: translateX(1.48rem); background: rgba(255, 255, 255, 0.22); }
+body.day-mode .sun-icon { opacity: 0.45; transform: translateX(-0.75rem) rotate(30deg) scale(0.82); color: #facc15; }
+body.day-mode .moon-icon { opacity: 1; transform: translateX(0.75rem) rotate(0deg) scale(1); }
+@keyframes theme-slide {
+    0% { filter: brightness(1); }
+    45% { filter: brightness(1.35); }
+    100% { filter: brightness(1); }
+}

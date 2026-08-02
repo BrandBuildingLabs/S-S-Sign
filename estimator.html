@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signage Estimator | S S SIGN</title>
+    <meta name="description" content="Estimate custom signage pricing for S S SIGN stainless steel nameplates, letters, acrylic nameplates, granite boards, and marble engraving.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estimator.css">
+</head>
+<body>
+    <main class="relative min-h-screen overflow-hidden px-4 py-20">
+        <div class="absolute inset-0 -z-10 bg-[linear-gradient(120deg,rgba(5,5,5,0.94),rgba(5,5,5,0.72)),url('latestscroll/goldResidency.jpeg')] bg-cover bg-center"></div>
+        <button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle absolute right-4 top-4 z-10 rounded-xl border border-white/20 bg-white/10 shadow-lg backdrop-blur transition-all hover:bg-white/20 md:right-5 md:top-5">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+                <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+            </svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+        </button>
+
+        <section class="mx-auto w-full max-w-6xl">
+            <a href="index.html" class="inline-flex text-sm font-semibold uppercase tracking-[0.16em] text-amber-400 hover:text-amber-300">S S SIGN</a>
+            <div class="mt-8 glass w-full max-w-2xl rounded-2xl p-5 shadow-2xl md:p-7">
+                <div class="mb-5 flex flex-col gap-1">
+                    <h1 class="text-3xl font-bold md:text-4xl">Signage Estimator</h1>
+                    <p class="text-sm text-gray-400">Instant quote for custom signage sizes.</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    <label class="sm:col-span-3">
+                        <span class="mb-2 block text-sm font-semibold text-gray-300">Material</span>
+                        <select id="material" class="form-control w-full rounded-lg px-4 py-3">
+                            <option value="ss-nameplate-silver">S S Silver nameplate Engraved</option>
+                            <option value="ss-nameplate-silver_em">S S Silver nameplate Embossed</option>
+                            <option value="ss-nameplate-silver-LED">S S Silver nameplate with LED</option>
+                            <option value="ss-letters-silver">S S Silver Letters</option>
+                            <option value="ss-letters-silver-LED">S S Silver Letters with LED</option>
+                            <option value="ss-nameplate-rosegold">S S Rose Gold nameplate Engraved</option>
+                            <option value="ss-nameplate-rosegold_em">S S Rose Gold nameplate Embossed</option>
+                            <option value="ss-letters-rosegold">S S Rose Gold Letters</option>
+                            <option value="ss-nameplate-gold">S S Gold nameplate Engraved</option>
+                            <option value="ss-nameplate-gold_em">S S Gold nameplate Embossed</option>
+                            <option value="ss-nameplate-gold-LED">S S Gold nameplate with LED</option>
+                            <option value="ss-letters-gold">S S Gold Letters</option>
+                            <option value="ss-letters-gold-LED">S S Gold Letters with LED</option>
+                            <option value="acrylic-nameplate">Acrylic 8mm nameplate</option>
+                            <option value="granite-board">Black granite Engraved</option>
+                            <option value="granite-board-em">Black granite Embossed</option>
+                            <option value="white-board">White Marble Engraved</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span class="mb-2 block text-sm font-semibold text-gray-300">Length (Horizontal)</span>
+                        <input id="length" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Length">
+                    </label>
+
+                    <label>
+                        <span class="mb-2 block text-sm font-semibold text-gray-300">Height (Vertical)</span>
+                        <input id="height" type="number" min="0" step="0.01" value="12" class="form-control w-full rounded-lg px-4 py-3" aria-label="Height">
+                    </label>
+
+                    <label>
+                        <span class="mb-2 block text-sm font-semibold text-gray-300">Measurement</span>
+                        <select id="unit" class="form-control w-full rounded-lg px-4 py-3">
+                            <option value="in">inch</option>
+                            <option value="mm">mm</option>
+                            <option value="cm">cm</option>
+                            <option value="ft">feet</option>
+                            <option value="m">m</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="min-w-0 flex-1">
+                        <span class="block text-sm text-gray-400">Estimated Quote</span>
+                        <strong id="quote" class="block whitespace-nowrap text-3xl font-bold text-white md:text-4xl">Rs 1,000</strong>
+                    </div>
+                    <div class="flex w-full flex-col gap-2 sm:w-auto sm:min-w-44">
+                        <a id="previewProducts" href="preview.html?material=ss-nameplate-silver" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-white/20">Preview products</a>
+                        <a id="createOwnPlate" href="miniCanvas.html?material=ss-nameplate-silver&width=12&height=12&unit=in" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-amber-500 px-3 py-2 text-sm font-semibold text-black shadow-lg transition-all hover:bg-amber-400">Create your own plate</a>
+                        <a id="whatsappQuote" href="https://wa.me/918332099014" class="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-green-700">Send quote on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const materialRates = {
+            'ss-nameplate-silver': { label: 'Stainless Steel Silver nameplate', rate: 1150 / 144 },
+            'ss-letters-silver': { label: 'Stainless Steel Silver Letters', rate: 540 / 60 },
+            'ss-nameplate-silver_em': { label: 'Stainless Steel Silver nameplate with embossing', rate: 1350 / 144 },
+            'ss-nameplate-silver-LED': { label: 'Stainless Steel Silver nameplate with LED', rate: 1800 / 144 },
+            'ss-letters-silver-LED': { label: 'Stainless Steel Silver Letters with embossing', rate: 800 / 60 },
+            'ss-nameplate-rosegold': { label: 'Stainless Steel Rose Gold nameplate', rate: (1150 / 144) * 2 },
+            'ss-nameplate-rosegold_em': { label: 'Stainless Steel Rose Gold nameplate with embossing', rate: (1350 / 144) * 2 },
+            'ss-letters-rosegold': { label: 'Stainless Steel Rose Gold Letters', rate: (540 / 60) * 2 },
+            'ss-letters-gold': { label: 'Stainless Steel Gold Letters', rate: 760 / 60 },
+            'ss-letters-gold-LED': { label: 'Stainless Steel Gold Letters', rate: 1250 / 60 },
+            'ss-nameplate-gold': { label: 'Stainless Steel Gold nameplate', rate: 1500 / 108 },
+            'ss-nameplate-gold_em': { label: 'Stainless Steel Gold nameplate with embossing', rate: 1850 / 108 },
+            'ss-nameplate-gold-LED': { label: 'Stainless Steel Gold nameplate with embossing', rate: 2450 / 60 },
+            'acrylic-nameplate': { label: 'Acrylic 8mm nameplate', rate: 1500 / 144 },
+            'granite-board': { label: 'Black granite stone board', rate: 1000 / 144 },
+            'granite-board-em': { label: 'Black granite embossed board', rate: 800 / 144 },
+            'white-board': { label: 'White marble engraved board', rate: 1200 / 144 }
+        };
+
+        const unitToInches = { mm: 1 / 25.4, cm: 1 / 2.54, m: 39.37007874, in: 1, ft: 12 };
+        const materialInput = document.getElementById('material');
+        const lengthInput = document.getElementById('length');
+        const heightInput = document.getElementById('height');
+        const unitInput = document.getElementById('unit');
+        const quoteOutput = document.getElementById('quote');
+        const whatsappQuote = document.getElementById('whatsappQuote');
+        const previewProducts = document.getElementById('previewProducts');
+        const createOwnPlate = document.getElementById('createOwnPlate');
+        const themeToggle = document.getElementById('themeToggle');
+
+        function formatQuote(value) {
+            return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
+        }
+
+        function updateQuote() {
+            const selectedMaterial = materialRates[materialInput.value];
+            const length = Math.max(Number(lengthInput.value) || 0, 0);
+            const height = Math.max(Number(heightInput.value) || 0, 0);
+            const unit = unitInput.value;
+            const lengthInches = length * unitToInches[unit];
+            const heightInches = height * unitToInches[unit];
+            const quote = lengthInches * heightInches * selectedMaterial.rate;
+            const formattedQuote = formatQuote(quote);
+            const message = `Hi S S SIGN,\nI need a quote for ${selectedMaterial.label}.\nSize: ${length} ${unit} length x ${height} ${unit} height. \nEstimated quote: ${formattedQuote}.`;
+            quoteOutput.textContent = formattedQuote;
+            whatsappQuote.href = `https://wa.me/918332099014?text=${encodeURIComponent(message)}`;
+            previewProducts.href = `preview.html?material=${encodeURIComponent(materialInput.value)}`;
+            createOwnPlate.href = `miniCanvas.html?material=${encodeURIComponent(materialInput.value)}&width=${encodeURIComponent(length)}&height=${encodeURIComponent(height)}&unit=${encodeURIComponent(unit)}`;
+        }
+
+        [materialInput, lengthInput, heightInput, unitInput].forEach((field) => {
+            field.addEventListener('input', updateQuote);
+            field.addEventListener('change', updateQuote);
+        });
+
+        themeToggle.addEventListener('click', () => {
+            const isDayMode = document.body.classList.toggle('day-mode');
+            themeToggle.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
+            themeToggle.classList.remove('slide');
+            void themeToggle.offsetWidth;
+            themeToggle.classList.add('slide');
+        });
+
+        updateQuote();
+    </script>
+</body>
+</html>
