@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>S S SIGN - Readymade Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          primary: '#ffc174', 'primary-container': '#f59e0b', background: '#121414', 'on-surface': '#e3e2e2', 'on-surface-variant': '#d8c3ad', 'surface-container-low': '#1a1c1c', 'surface-container': '#1e2020', 'surface-container-high': '#292a2a', 'surface-container-highest': '#343535', 'surface-variant': '#343535', outline: '#a08e7a', 'outline-variant': '#534434'
+        },
+        fontFamily: { body: ['Geist', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<style>
+  body { min-height: 100dvh; background: #0a0a0a; color: #e3e2e2; font-family: Geist, sans-serif; }
+  .surface_glass { background-color: rgba(26, 28, 28, 0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .border_glass { border-color: rgba(160, 142, 122, 0.22); }
+  .form-field { width: 100%; border-radius: 0.75rem; border: 1px solid rgba(160, 142, 122, 0.28); background: rgba(52, 53, 53, 0.72); color: #e3e2e2; padding: 0.8rem 0.95rem; outline: none; }
+  .form-field:focus { border-color: #f59e0b; box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.5); }
+  @media (max-width: 640px) { .cart-shell { padding-inline: 1rem; } .cart-card { grid-template-columns: 5.25rem 1fr; } }
+</style>
+</head>
+<body class="overflow-x-hidden selection:bg-primary-container selection:text-black">
+<header class="bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 fixed top-0 w-full z-50 flex items-center justify-between px-5 md:px-16 h-16">
+  <a class="inline-flex h-11 w-11 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" href="readymade.html" aria-label="Back to readymade products"><span class="material-symbols-outlined">arrow_back</span></a>
+  <div class="text-2xl font-black tracking-tight text-primary">S S SIGN</div>
+  <a class="inline-flex h-11 w-11 items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors" href="../index.html" aria-label="Home"><span class="material-symbols-outlined">home</span></a>
+</header>
+<main class="cart-shell pt-24 pb-12 px-5 md:px-16 max-w-6xl mx-auto">
+  <section class="mb-8">
+    <p class="text-sm uppercase tracking-[0.22em] text-on-surface-variant font-bold">Ready Made Products</p>
+    <h1 class="text-4xl md:text-5xl font-black text-primary mt-2">Your Cart</h1>
+    <p class="text-on-surface-variant mt-3 max-w-2xl">Review quantities and sizes, then send the order details directly to WhatsApp.</p>
+  </section>
+  <section class="grid lg:grid-cols-[1fr_380px] gap-6 items-start">
+    <div id="cart-items" class="flex flex-col gap-4"></div>
+    <aside class="surface_glass border border_glass rounded-2xl p-5 md:p-6 sticky top-24">
+      <h2 class="text-2xl font-bold text-primary mb-4">Order Details</h2>
+      <div class="grid gap-4">
+        <label class="grid gap-2 text-sm font-semibold text-on-surface-variant">Name<input id="customer-name" class="form-field" placeholder="Customer name" autocomplete="name"/></label>
+        <label class="grid gap-2 text-sm font-semibold text-on-surface-variant">Address<textarea id="customer-address" class="form-field min-h-28 resize-y" placeholder="Delivery / installation address" autocomplete="street-address"></textarea></label>
+      </div>
+      <div class="mt-5 rounded-xl bg-surface-container-high/80 border border_glass p-4">
+        <div class="flex justify-between text-on-surface-variant"><span>Total items</span><strong id="cart-count" class="text-primary">0</strong></div>
+        <p id="cart-note" class="text-sm text-on-surface-variant mt-2"></p>
+      </div>
+      <button id="order-button" class="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#16a34a] px-5 py-3 font-black text-white hover:bg-[#12813d] active:scale-[0.99] transition-all"><span class="material-symbols-outlined">send</span>Order on WhatsApp</button>
+      <a class="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-xl border border_glass px-5 py-3 font-bold text-on-surface hover:text-primary transition-colors" href="readymade.html"><span class="material-symbols-outlined">add_shopping_cart</span>Add More Products</a>
+    </aside>
+  </section>
+</main>
+<script>
+  const CART_KEY = 'sssign-readymade-cart';
+  const WHATSAPP_NUMBER = '918332099014';
+
+  function readCart() {
+    try {
+      const raw = localStorage.getItem(CART_KEY);
+      const cart = raw ? JSON.parse(raw) : [];
+      return Array.isArray(cart) ? cart : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function writeCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+
+  function renderCart() {
+    const cart = readCart();
+    const list = document.getElementById('cart-items');
+    const count = cart.reduce(function(total, item) { return total + Number(item.quantity || 0); }, 0);
+    document.getElementById('cart-count').textContent = count;
+    document.getElementById('cart-note').textContent = count ? 'Size can be edited before placing the order.' : 'Your cart is empty.';
+    document.getElementById('order-button').disabled = !count;
+    document.getElementById('order-button').classList.toggle('opacity-50', !count);
+    document.getElementById('order-button').classList.toggle('cursor-not-allowed', !count);
+
+    if (!cart.length) {
+      list.innerHTML = '<div class="surface_glass border border_glass rounded-2xl p-8 text-center"><span class="material-symbols-outlined text-primary text-5xl">shopping_cart_off</span><h2 class="text-2xl font-bold mt-3">No products added yet</h2><p class="text-on-surface-variant mt-2">Add ready-made products first, then they will appear here.</p><a class="mt-5 inline-flex items-center justify-center rounded-xl bg-primary-container px-5 py-3 font-black text-black" href="readymade.html">Browse Products</a></div>';
+      return;
+    }
+
+    list.innerHTML = cart.map(function(item) {
+      return '<article class="cart-card surface_glass border border_glass rounded-2xl p-3 md:p-4 grid grid-cols-[7rem_1fr] gap-4 items-start" data-product-id="' + item.id + '">' +
+        '<img class="w-full aspect-square rounded-xl object-cover bg-surface-container-low" src="' + item.image + '" alt="' + item.name.replace(/"/g, '&quot;') + '"/>' +
+        '<div class="min-w-0">' +
+          '<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">' +
+            '<div><p class="text-xs uppercase tracking-[0.18em] text-on-surface-variant font-bold">' + item.id + '</p><h2 class="text-lg md:text-xl font-bold text-on-surface mt-1">' + item.name + '</h2><p class="text-primary font-black mt-1">' + item.price + '</p></div>' +
+            '<button class="self-start inline-flex h-10 w-10 items-center justify-center rounded-full border border_glass text-on-surface-variant hover:text-primary" onclick="removeItem(\'' + item.id + '\')" aria-label="Remove product"><span class="material-symbols-outlined">delete</span></button>' +
+          '</div>' +
+          '<div class="grid sm:grid-cols-[8rem_1fr] gap-3 mt-4">' +
+            '<label class="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-on-surface-variant">Qty<input class="form-field" type="number" min="1" value="' + item.quantity + '" onchange="updateQuantity(\'' + item.id + '\', this.value)"/></label>' +
+            '<label class="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-on-surface-variant">Size<input class="form-field" value="' + (item.size || 'Standard ready-made size').replace(/"/g, '&quot;') + '" onchange="updateSize(\'' + item.id + '\', this.value)" placeholder="Example: 12 x 18 inch"/></label>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function updateQuantity(id, value) {
+    const cart = readCart();
+    const item = cart.find(function(entry) { return entry.id === id; });
+    if (!item) return;
+    item.quantity = Math.max(1, parseInt(value || '1', 10));
+    writeCart(cart);
+    renderCart();
+  }
+
+  function updateSize(id, value) {
+    const cart = readCart();
+    const item = cart.find(function(entry) { return entry.id === id; });
+    if (!item) return;
+    item.size = value.trim() || 'Standard ready-made size';
+    writeCart(cart);
+  }
+
+  function removeItem(id) {
+    writeCart(readCart().filter(function(item) { return item.id !== id; }));
+    renderCart();
+  }
+
+  function sendOrder() {
+    const cart = readCart();
+    const name = document.getElementById('customer-name').value.trim();
+    const address = document.getElementById('customer-address').value.trim();
+    const note = document.getElementById('cart-note');
+    if (!cart.length) { note.textContent = 'Please add a product before ordering.'; return; }
+    if (!name || !address) { note.textContent = 'Please enter your name and address.'; return; }
+    const lines = ['Readymade Product Order - S S SIGN', '', 'Customer Name: ' + name, 'Address: ' + address, '', 'Products:'];
+    cart.forEach(function(item, index) {
+      lines.push((index + 1) + '. Product ID: ' + item.id);
+      lines.push('   Name: ' + item.name);
+      lines.push('   Quantity: ' + item.quantity);
+      lines.push('   Size: ' + (item.size || 'Standard ready-made size'));
+      lines.push('   Price: ' + item.price);
+    });
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  }
+
+  document.getElementById('order-button').addEventListener('click', sendOrder);
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>

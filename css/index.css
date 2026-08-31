@@ -14,12 +14,14 @@ body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffff
 .mobile-menu-head button { width: 2.2rem; height: 2.2rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; background: rgba(255, 255, 255, 0.08); font-size: 1.4rem; line-height: 1; }
 .mobile-menu-link { display: flex; align-items: center; min-height: 3rem; padding: 0 0.85rem; border-radius: 0.65rem; color: rgba(255, 255, 255, 0.82); font-size: 0.84rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease; }
 .mobile-menu-link:hover { background: rgba(255, 255, 255, 0.1); color: #f59e0b; transform: translateX(2px); }
+.mobile-menu-star { margin-bottom: 0.4rem; background: rgba(245, 158, 11, 0.14); color: #f59e0b; }
 .mobile-menu-quote { margin-top: 0.75rem; background: #f59e0b; color: #0a0a0a; justify-content: center; }
 body.day-mode .mobile-menu-toggle { background: rgba(255, 255, 255, 0.88); border-color: rgba(17, 24, 39, 0.16); color: #111827; }
 body.day-mode .mobile-menu { background: rgba(255, 255, 255, 0.96); border-right-color: rgba(17, 24, 39, 0.12); }
 body.day-mode .mobile-menu-head, body.day-mode .mobile-menu-link { color: #111827; }
 body.day-mode .mobile-menu-head button { color: #111827; border-color: rgba(17, 24, 39, 0.16); background: rgba(17, 24, 39, 0.06); }
 body.day-mode .mobile-menu-link:hover { background: rgba(17, 24, 39, 0.08); color: #b45309; }
+body.day-mode .mobile-menu-star { background: rgba(245, 158, 11, 0.16); color: #b45309; }
 body.day-mode .mobile-menu-quote { color: #0a0a0a; }
 @media (min-width: 768px) { .mobile-menu-toggle, .mobile-menu, .mobile-menu-overlay { display: none; } }
 
@@ -28,6 +30,7 @@ body.day-mode .mobile-menu-quote { color: #0a0a0a; }
 .nav-brand { margin-right: 3rem; color: #ffffff; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 2rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; }
 .nav-link { color: rgba(255, 255, 255, 0.66); transition: color 0.2s ease; }
+.nav-link-star { color: #f59e0b; }
 .nav-link:hover, .nav-link.active { color: #f59e0b; }
 .hero-kicker { letter-spacing: 0.42em; }
 .hero-shell { flex: 1; display: flex; align-items: center; padding: 7rem 0.75rem 4rem; }

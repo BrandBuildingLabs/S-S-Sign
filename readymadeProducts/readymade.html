@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>S S SIGN - Ready Made Products</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffc174",
+                        "on-primary-container": "#613b00",
+                        "tertiary-container": "#4ac86a",
+                        "primary-fixed-dim": "#ffb95f",
+                        "surface-container-low": "#1a1c1c",
+                        "on-secondary": "#002a78",
+                        "outline-variant": "#534434",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#004f1f",
+                        "on-error-container": "#ffdad6",
+                        "background": "#121414",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-container-lowest": "#0d0e0f",
+                        "on-tertiary": "#003914",
+                        "tertiary-fixed-dim": "#62df7d",
+                        "tertiary": "#68e583",
+                        "on-primary": "#472a00",
+                        "surface-container-high": "#292a2a",
+                        "surface-variant": "#343535",
+                        "error-container": "#93000a",
+                        "on-surface": "#e3e2e2",
+                        "surface-bright": "#38393a",
+                        "secondary-container": "#0053db",
+                        "on-tertiary-fixed-variant": "#005320",
+                        "primary-container": "#f59e0b",
+                        "inverse-primary": "#855300",
+                        "on-tertiary-fixed": "#002109",
+                        "secondary": "#b4c5ff",
+                        "on-background": "#e3e2e2",
+                        "surface": "#121414",
+                        "primary-fixed": "#ffddb8",
+                        "tertiary-fixed": "#7ffc97",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-dim": "#121414",
+                        "surface-container-highest": "#343535",
+                        "on-primary-fixed-variant": "#653e00",
+                        "surface-container": "#1e2020",
+                        "on-primary-fixed": "#2a1700",
+                        "outline": "#a08e7a",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface-variant": "#d8c3ad",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#ffb95f",
+                        "inverse-on-surface": "#2f3131",
+                        "on-secondary-container": "#cdd7ff",
+                        "inverse-surface": "#e3e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "section-gap": "80px",
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "label-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e3e2e2;
+        }
+        .surface_glass {
+            background-color: rgba(26, 28, 28, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .border_glass {
+            border-color: rgba(160, 142, 122, 0.2);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .product-card-hover {
+            transition: all 0.3s ease;
+        }
+        .product-card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+    </style>
+<style>
+    body { min-height: 100dvh; }
+    .product-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    .cart-link { min-width: 2.75rem; min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; }
+    .cart-action { min-height: 2.375rem; }
+    @media (max-width: 520px) {
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+      .ready-title { font-size: 2rem; line-height: 1.1; }
+      .ready-copy { font-size: 0.95rem; line-height: 1.5; }
+      .product-card-hover { border-radius: 0.75rem; }
+      .product-card-hover .p-4 { padding: 0.75rem; }
+      .product-card-hover h3 { font-size: 0.86rem; }
+      .product-card-hover img { transform: none !important; }
+    }
+    @media (max-width: 360px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  </head>
+<body class="bg-[#0a0a0a] min-h-screen text-on-surface font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 fixed top-0 w-full z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-display-lg text-headline-md tracking-tighter text-primary">S S SIGN</div>
+<a aria-label="Open cart" class="cart-link text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200 relative rounded-full" href="cart.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-primary-container text-[#0a0a0a] font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center hidden" id="cart-badge">0</span>
+</a>
+</header>
+<!-- Navigation Drawer (Desktop) -->
+<aside class="bg-surface-container-low border-r border-outline-variant/20 shadow-2xl h-full w-80 hidden lg:flex flex-col gap-stack-md p-stack-lg fixed left-0 top-16 z-40">
+<h2 class="font-headline-md text-primary">Collections</h2>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-4 bg-secondary-container text-on-secondary-container font-semibold rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined">new_releases</span>
+<span class="font-body-md text-body-md">New Arrivals</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-body-md text-body-md">Bestsellers</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-body-md text-body-md">Outdoor Signage</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined">wb_iridescent</span>
+<span class="font-body-md text-body-md">Indoor Displays</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-body-md text-body-md">Custom Orders</span>
+</a>
+</nav>
+</aside>
+<main class="pt-24 pb-32 lg:pl-[340px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto min-h-screen">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 font-label-sm text-on-surface-variant mb-6">
+<a class="hover:text-primary transition-colors" href="../index.html">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Ready Made Products</span>
+</nav>
+<!-- Header -->
+<header class="mb-section-gap">
+<h1 class="ready-title font-headline-lg-mobile md:font-headline-lg text-primary mb-4">Ready Made Products</h1>
+<p class="ready-copy font-body-lg text-on-surface-variant max-w-2xl">Explore our curated collection of ready-made products for home interiors, exteriors, decor, signage, and more. Precision crafted for immediate installation.</p>
+</header>
+<!-- Search & Filter Controls -->
+<div class="sticky top-16 z-30 bg-[#0a0a0a]/90 backdrop-blur-xl py-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 mb-8 border-b border-outline-variant/10 md:border-none">
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+<!-- Search -->
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full surface_glass border border_glass rounded-full py-3 pl-12 pr-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all placeholder:text-on-surface-variant/50" placeholder="Search signs, plaques, decor..." type="text"/>
+</div>
+<!-- Categories (Scrollable) -->
+<div class="w-full overflow-x-auto hide-scrollbar flex gap-2 pb-2 md:pb-0">
+<button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md bg-primary-container text-[#0a0a0a] font-semibold flex-shrink-0 transition-transform active:scale-95">All Products</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Home Interior</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Home Exterior</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Office</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Signage</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Personalized</button>
+</div>
+<!-- Sort/Filter Mobile Trigger -->
+<button class="md:hidden w-full flex items-center justify-center gap-2 py-3 surface_glass border border_glass rounded-xl font-label-md text-on-surface">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                    Filter &amp; Sort
+                </button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="product-grid grid gap-4 md:gap-6">
+<!-- Product Card 1 -->
+<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(1)">
+<div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
+<span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
+</div>
+<button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern, minimalist acrylic house name plate featuring a clear glass-like finish with raised matte black lettering, mounted onto a sleek dark grey wall. The lighting is soft and architectural, highlighting the precise laser-cut edges and casting subtle drop shadows that emphasize depth. The aesthetic is premium, contemporary, and highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8JB7DpCnGLpyo4WDiXeFzUYLSevPy7gpVCQiLkjmNAlBi_Gq5qgCyQKAAozgJIEmrLQeQB9G6nSB4mqI8sl5MoNa7yEMH9gEW4EbvXdNnKMPOv2CyjZ_ZrSuyfFuYU7EiCAlmqdankNaT4zMJC-HVbHlnW_Il3ni4aGBzuubKHuK35gC_jcnfZ26V_CzpDS7lcUW7fkSAQn290_gsMs4lIJY-R2aEuzSWKwOX9dcgwyoY8Xo1tTekyw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="p-4 flex flex-col flex-grow justify-between gap-3">
+<div>
+<div class="flex items-center gap-1 mb-1 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-on-surface-variant">4.8 (124)</span>
+</div>
+<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Premium Clear Acrylic House Name Plate</h3>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-baseline gap-2">
+<span class="font-body-lg font-semibold text-primary">₹1,999</span>
+<span class="font-label-sm text-on-surface-variant line-through">₹2,499</span>
+</div>
+<button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(2)">
+<div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
+<span class="bg-surface-container-highest text-on-surface border border_glass font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">Best Seller</span>
+</div>
+<button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A brushed stainless steel directional office sign with engraved black typography, installed on a warm oak wood paneled wall. Professional, bright office lighting creates sharp highlights on the metallic surface, emphasizing its luxury corporate aesthetic and flawless industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeO6kXVr3K3euoYaKtGxdnQUgyggHENOwxVs3lspu6vKmVYS81OOwbNhi-viGeotRRmkt7z6dgrfTAMjmqY4tFrI5eSwMnSdgQphcJZzzTaKeXwxGBgQah7I7iUQeaN619tYPDXFDpbNjhAMfZ738qAeVc6IwMnX36tLpc3POG_1jIF9ZEL7GjOSLBqOA4TDHU8ApqoLt3lWkucOm6TMHmkHKF7YY2K0SQp_Ky5ZeTYXCudH5k4bT4fA"/>
+</div>
+<div class="p-4 flex flex-col flex-grow justify-between gap-3">
+<div>
+<div class="flex items-center gap-1 mb-1 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-on-surface-variant">4.9 (89)</span>
+</div>
+<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Brushed Stainless Steel Directional Sign</h3>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-baseline gap-2">
+<span class="font-body-lg font-semibold text-primary">₹3,450</span>
+</div>
+<button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(3)">
+<button class="absolute top-2 right-2 z-10 text-error p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A matte black metal cutout wall decor piece depicting a stylized geometric compass rose, mounted against an exposed brick wall. Warm, moody Edison bulb lighting casts dramatic shadows that enhance the three-dimensional floating effect of the metalwork. The vibe is rustic yet refined and highly modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1X6pAr9tWvU5a8YLcNza1XfG27hW--CicoK5oltY97WqKsddgeqWVVh1-TdtPee8Pv8lgJ4yxVdR4dGJNvrv_UUaVhaWmjdfB0VZpW32tlIgnGqFTZurFs7v5z8_kaP074e5EEVYTwTVF3gXlPAgkeNQeeHhvMx21GSDKawJ3HlW6-7Q30zclCyT6PLy5UKkDGQOKo4xcfs7sU5RWb4qR0yxFKX3ZGM9f91nBHrTO6Xhs_8sGIPLrvA"/>
+</div>
+<div class="p-4 flex flex-col flex-grow justify-between gap-3">
+<div>
+<div class="flex items-center gap-1 mb-1 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-on-surface-variant">4.6 (45)</span>
+</div>
+<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Matte Black Metal Compass Wall Art</h3>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-baseline gap-2">
+<span class="font-body-lg font-semibold text-primary">₹4,200</span>
+<span class="font-label-sm text-on-surface-variant line-through">₹5,000</span>
+</div>
+<button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(4)">
+<button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious backlit LED address plaque featuring frosted glass and a dark bronze frame, illuminated with warm 3000K light against a dark stucco exterior wall at twilight. The glowing numbers are crisp and legible, evoking high-end residential architecture and sophisticated curb appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANzwZcjNReNhoPvfcgd-7MeygubxOwWGXfRX_hEIn--WtiT9f-9mViCO2IcHg9mgUesz8FcimFHgam9z8lHcBqOriYEzd0oN2an4cQmjnymO1eJEvg2DDS83IBdXV6Nl0SQ128KBlFnQnrd9nFuqsSzdP_GAIAGeBe_9B_1aoja1wCMJisfOyzDbXEPlz1jLqIAB0nULj0c8u2LxUS4A2h9nrwRRsCKggCWE7-XQ_Z9RriB9dmVpYbYA"/>
+</div>
+<div class="p-4 flex flex-col flex-grow justify-between gap-3">
+<div>
+<div class="flex items-center gap-1 mb-1 text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-on-surface-variant">5.0 (210)</span>
+</div>
+<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Illuminated LED Address Plaque - Bronze</h3>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-baseline gap-2">
+<span class="font-body-lg font-semibold text-primary">₹8,999</span>
+</div>
+<!-- State: Added -->
+<div class="w-full bg-surface-container-highest border border_glass rounded-lg flex items-center justify-between overflow-hidden h-[38px]" onclick="event.stopPropagation()">
+<button class="px-4 py-2 hover:bg-surface-variant text-on-surface transition-colors" onclick="updateQty(this, -1)">-</button>
+<span class="font-label-md font-bold text-primary">1</span>
+<button class="px-4 py-2 hover:bg-surface-variant text-on-surface transition-colors" onclick="updateQty(this, 1)">+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-highest/90 backdrop-blur-2xl border-t border-outline-variant/10 fixed bottom-0 w-full rounded-t-xl z-50 shadow-lg md:hidden flex justify-around items-center h-20 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl px-4 py-1 hover:bg-surface-variant/50 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm mt-1">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm mt-1">Account</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform p-2 rounded-xl relative" href="cart.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="font-label-sm mt-1">Cart</span>
+<span class="absolute top-1 right-1 bg-primary-container text-[#0a0a0a] text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden" data-cart-count>0</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-section-gap border-t border-outline-variant/10 hidden md:grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop lg:ml-80">
+<div class="col-span-1">
+<div class="text-primary font-bold font-display-lg text-headline-md tracking-tighter mb-4">S S SIGN</div>
+<p class="font-label-md text-on-surface-variant">© 2024 S S SIGN. Precision Crafted.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Shipping Info</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Contact Us</a>
+</div>
+</footer>
+<script>
+        const CART_KEY = 'sssign-readymade-cart';
+
+        function readCart() {
+            try {
+                const raw = localStorage.getItem(CART_KEY);
+                const cart = raw ? JSON.parse(raw) : [];
+                return Array.isArray(cart) ? cart : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function writeCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        function getProductId(card) {
+            if (card.dataset.productId) return card.dataset.productId;
+            const match = (card.getAttribute('onclick') || '').match(/openQuickView\((\d+)\)/);
+            const id = match ? match[1].padStart(3, '0') : String(document.querySelectorAll('article').length + 1).padStart(3, '0');
+            card.dataset.productId = 'READY-' + id;
+            return card.dataset.productId;
+        }
+
+        function productFromCard(card) {
+            const title = card.querySelector('h3')?.textContent.trim() || 'Ready Made Product';
+            const image = card.querySelector('img')?.getAttribute('src') || '';
+            const priceNode = Array.from(card.querySelectorAll('span')).find((node) => node.textContent.trim().startsWith('₹'));
+            return {
+                id: getProductId(card),
+                name: title,
+                price: priceNode ? priceNode.textContent.trim() : 'Price on request',
+                image: image,
+                size: 'Standard ready-made size'
+            };
+        }
+
+        function renderAddButton(container) {
+            const addBtn = document.createElement('button');
+            addBtn.className = 'cart-action w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2';
+            addBtn.onclick = function(event) { event.stopPropagation(); toggleAdd(addBtn); };
+            addBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">add</span><span>Add</span>';
+            container.appendChild(addBtn);
+        }
+
+        function renderQtyControl(container, productId, quantity) {
+            container.innerHTML = '';
+            const qtyBox = document.createElement('div');
+            qtyBox.className = 'cart-action w-full bg-surface-container-highest border border_glass rounded-lg flex items-center justify-between overflow-hidden h-[38px]';
+            qtyBox.dataset.productId = productId;
+            qtyBox.onclick = function(event) { event.stopPropagation(); };
+            qtyBox.innerHTML = '<button class="px-4 py-2 hover:bg-surface-variant text-on-surface transition-colors" onclick="updateQty(this, -1)">-</button><span class="font-label-md font-bold text-primary">' + quantity + '</span><button class="px-4 py-2 hover:bg-surface-variant text-on-surface transition-colors" onclick="updateQty(this, 1)">+</button>';
+            container.appendChild(qtyBox);
+        }
+
+        function toggleAdd(btn) {
+            const card = btn.closest('article');
+            const product = productFromCard(card);
+            const cart = readCart();
+            const existing = cart.find((item) => item.id === product.id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            writeCart(cart);
+            const item = cart.find((entry) => entry.id === product.id);
+            renderQtyControl(btn.parentElement, product.id, item.quantity);
+            updateCartBadge();
+        }
+
+        function updateQty(btn, change) {
+            const qtyBox = btn.parentElement;
+            const productId = qtyBox.dataset.productId;
+            if (!productId) return;
+            const cart = readCart();
+            const item = cart.find((entry) => entry.id === productId);
+            if (!item) return;
+            item.quantity += change;
+            if (item.quantity < 1) {
+                writeCart(cart.filter((entry) => entry.id !== productId));
+                const container = qtyBox.parentElement;
+                container.innerHTML = '';
+                renderAddButton(container);
+            } else {
+                writeCart(cart);
+                qtyBox.querySelector('span').innerText = item.quantity;
+            }
+            updateCartBadge();
+        }
+
+        function updateCartBadge() {
+            const count = readCart().reduce((total, item) => total + Number(item.quantity || 0), 0);
+            document.querySelectorAll('#cart-badge, [data-cart-count]').forEach((badge) => {
+                badge.innerText = count;
+                badge.classList.toggle('hidden', count <= 0);
+            });
+        }
+
+        function setupProducts() {
+            const cart = readCart();
+            document.querySelectorAll('article').forEach((card) => {
+                const product = productFromCard(card);
+                const buttonArea = card.querySelector('.flex.flex-col.gap-2');
+                if (!buttonArea) return;
+                const existingStaticQty = buttonArea.querySelector('[onclick^="updateQty"]')?.closest('div');
+                if (existingStaticQty && !existingStaticQty.dataset.productId) {
+                    existingStaticQty.remove();
+                    renderAddButton(buttonArea);
+                }
+                const added = cart.find((item) => item.id === product.id);
+                const action = buttonArea.querySelector('button[onclick*="toggleAdd"], .cart-action');
+                if (added && action) {
+                    renderQtyControl(buttonArea, product.id, added.quantity);
+                }
+            });
+            updateCartBadge();
+        }
+
+        function openQuickView(id) {
+            console.log('Open Quick View for product:', id);
+        }
+
+        document.addEventListener('DOMContentLoaded', setupProducts);
+    </script>
+</body></html>
