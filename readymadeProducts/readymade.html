@@ -6,10 +6,12 @@
 <title>S S SIGN - Ready Made Products</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/index.css"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -140,6 +142,33 @@
     .product-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
     .cart-link { min-width: 2.75rem; min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; }
     .cart-action { min-height: 2.375rem; }
+    .ready-header { height: 5rem; }
+    .ready-header .site-nav { width: 100%; padding-left: 5.25rem; padding-right: 9.25rem; }
+    .ready-header .mobile-menu-toggle { position: absolute; }
+    .ready-cart-link { position: absolute; left: auto; right: 1rem; top: 1.1rem; z-index: 31; width: 2.75rem; height: 2.75rem; }
+    .ready-theme-toggle { position: absolute !important; left: auto !important; right: 4.25rem !important; top: 1.05rem !important; z-index: 31 !important; }
+    .ready-mobile-brand { top: 1.45rem; }
+    body.ready-page.day-mode { background: #f7f7f2; color: #111827; }
+    body.ready-page.day-mode .ready-header { background: rgba(255, 255, 255, 0.92); border-color: rgba(17, 24, 39, 0.12); }
+    body.ready-page.day-mode .surface_glass { background-color: rgba(255, 255, 255, 0.82); border-color: rgba(17, 24, 39, 0.12); }
+    body.ready-page.day-mode .bg-\[\#0a0a0a\] { background-color: #f7f7f2; }
+    body.ready-page.day-mode .text-on-surface { color: #111827; }
+    body.ready-page.day-mode .text-on-surface-variant { color: #525252; }
+    body.ready-page.day-mode .bg-background\/80 { background-color: rgba(255, 255, 255, 0.9); }
+    body.ready-page.day-mode .bg-surface-container-low { background-color: #ffffff; }
+    body.ready-page.day-mode .bg-surface-container-lowest { background-color: #f3f4f6; }
+    body.ready-page.day-mode .bg-surface-container-highest { background-color: #ffffff; }
+    body.ready-page.day-mode .bg-surface-variant { background-color: #e5e7eb; }
+    body.ready-page.day-mode .site-nav { background: rgba(255, 255, 255, 0.92); border-bottom-color: rgba(17, 24, 39, 0.12); }
+    body.ready-page.day-mode .nav-brand, body.ready-page.day-mode .mobile-brand { color: #111827; }
+    body.ready-page.day-mode .nav-link { color: rgba(17, 24, 39, 0.66); }
+    body.ready-page.day-mode .nav-link:hover, body.ready-page.day-mode .nav-link.active, body.ready-page.day-mode .nav-link-star { color: #b45309; }
+    @media (max-width: 767px) {
+      .ready-header { height: 4.5rem; }
+      .ready-theme-toggle { left: auto !important; right: 3.65rem !important; top: 1rem !important; transform: scale(0.82); transform-origin: top right; }
+      .ready-cart-link { left: auto; right: 0.65rem; top: 1rem; width: 2.55rem; height: 2.55rem; }
+      .ready-mobile-brand { font-size: 1.05rem; max-width: 9rem; overflow: hidden; text-overflow: ellipsis; }
+    }
     @media (max-width: 520px) {
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
       .ready-title { font-size: 2rem; line-height: 1.1; }
@@ -154,14 +183,50 @@
     }
   </style>
   </head>
-<body class="bg-[#0a0a0a] min-h-screen text-on-surface font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<body class="ready-page bg-[#0a0a0a] min-h-screen text-on-surface font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopAppBar -->
-<header class="bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 fixed top-0 w-full z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16">
-<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+<header class="ready-header bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 fixed top-0 w-full z-50 px-margin-mobile md:px-margin-desktop">
+<button id="mobileMenuToggle" type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+<span></span>
+<span></span>
+<span></span>
 </button>
-<div class="font-display-lg text-headline-md tracking-tighter text-primary">S S SIGN</div>
-<a aria-label="Open cart" class="cart-link text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200 relative rounded-full" href="cart.html">
+<div id="mobileMenuOverlay" class="mobile-menu-overlay" hidden></div>
+<aside id="mobileMenu" class="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+<div class="mobile-menu-head">
+<span>S S SIGN</span>
+<button id="mobileMenuClose" type="button" aria-label="Close menu">&times;</button>
+</div>
+<a class="mobile-menu-link" href="../index.html">Home</a>
+<a class="mobile-menu-link mobile-menu-star" href="readymade.html">Readymade</a>
+<a class="mobile-menu-link" href="../preview.html">Products</a>
+<a class="mobile-menu-link" href="../index.html#residential">Residential</a>
+<a class="mobile-menu-link" href="../index.html#commercial">Commercial</a>
+<a class="mobile-menu-link" href="../index.html#contact">Contact</a>
+<a class="mobile-menu-link mobile-menu-quote" href="../estimator.html">Request Quote</a>
+</aside>
+<button id="themeToggle" type="button" aria-label="Switch to day mode" title="Switch theme" class="theme-toggle ready-theme-toggle rounded-xl border border-white/20 bg-white/10 shadow-lg backdrop-blur transition-all hover:bg-white/20">
+<svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+<path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+<path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<a href="../index.html" class="mobile-brand ready-mobile-brand">S S SIGN</a>
+<nav class="site-nav">
+<a href="../index.html" class="nav-brand">S S SIGN</a>
+<div class="nav-links">
+<a class="nav-link nav-link-star active" href="readymade.html">Readymade</a>
+<a class="nav-link" href="../index.html#portfolio">Portfolio</a>
+<a class="nav-link" href="../preview.html">Products</a>
+<a class="nav-link" href="../index.html#residential">Residential</a>
+<a class="nav-link" href="../index.html#commercial">Commercial</a>
+<a class="nav-link" href="../index.html#contact">Contact</a>
+</div>
+</nav>
+<a aria-label="Open cart" class="ready-cart-link cart-link text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200 rounded-full" href="cart.html">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
 <span class="absolute -top-1 -right-1 bg-primary-container text-[#0a0a0a] font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center hidden" id="cart-badge">0</span>
 </a>
@@ -222,10 +287,6 @@
 <button class="whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Personalized</button>
 </div>
 <!-- Sort/Filter Mobile Trigger -->
-<button class="md:hidden w-full flex items-center justify-center gap-2 py-3 surface_glass border border_glass rounded-xl font-label-md text-on-surface">
-<span class="material-symbols-outlined text-[18px]">tune</span>
-                    Filter &amp; Sort
-                </button>
 </div>
 </div>
 <!-- Product Grid -->
@@ -351,27 +412,6 @@
 </article>
 </div>
 </main>
-<!-- BottomNavBar -->
-<nav class="bg-surface-container-highest/90 backdrop-blur-2xl border-t border-outline-variant/10 fixed bottom-0 w-full rounded-t-xl z-50 shadow-lg md:hidden flex justify-around items-center h-20 pb-safe">
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform p-2 rounded-xl" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
-<span class="font-label-sm mt-1">Home</span>
-</a>
-<a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl px-4 py-1 hover:bg-surface-variant/50 active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
-<span class="font-label-sm mt-1">Categories</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform p-2 rounded-xl" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
-<span class="font-label-sm mt-1">Account</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform p-2 rounded-xl relative" href="cart.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
-<span class="font-label-sm mt-1">Cart</span>
-<span class="absolute top-1 right-1 bg-primary-container text-[#0a0a0a] text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden" data-cart-count>0</span>
-</a>
-</nav>
-<!-- Footer -->
 <footer class="bg-surface-container-lowest py-section-gap border-t border-outline-variant/10 hidden md:grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop lg:ml-80">
 <div class="col-span-1">
 <div class="text-primary font-bold font-display-lg text-headline-md tracking-tighter mb-4">S S SIGN</div>
@@ -387,6 +427,45 @@
 </div>
 </footer>
 <script>
+        const THEME_KEY = 'sssign-theme';
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem(THEME_KEY);
+            const isDayMode = savedTheme === 'day';
+            document.body.classList.toggle('day-mode', isDayMode);
+            themeToggle?.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
+        }
+
+        function setMobileMenu(open) {
+            if (!mobileMenuToggle || !mobileMenu || !mobileMenuOverlay) return;
+            document.body.classList.toggle('mobile-menu-open', open);
+            mobileMenuToggle.setAttribute('aria-expanded', String(open));
+            mobileMenuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            mobileMenu.setAttribute('aria-hidden', String(!open));
+            mobileMenuOverlay.hidden = !open;
+        }
+
+        applySavedTheme();
+        mobileMenuToggle?.addEventListener('click', () => setMobileMenu(!document.body.classList.contains('mobile-menu-open')));
+        mobileMenuClose?.addEventListener('click', () => setMobileMenu(false));
+        mobileMenuOverlay?.addEventListener('click', () => setMobileMenu(false));
+        document.querySelectorAll('.mobile-menu-link').forEach((link) => link.addEventListener('click', () => setMobileMenu(false)));
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') setMobileMenu(false);
+        });
+        themeToggle?.addEventListener('click', () => {
+            const isDayMode = document.body.classList.toggle('day-mode');
+            localStorage.setItem(THEME_KEY, isDayMode ? 'day' : 'night');
+            themeToggle.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
+            themeToggle.classList.remove('slide');
+            void themeToggle.offsetWidth;
+            themeToggle.classList.add('slide');
+        });
         const CART_KEY = 'sssign-readymade-cart';
 
         function readCart() {

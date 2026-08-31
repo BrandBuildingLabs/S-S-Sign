@@ -28,6 +28,12 @@
   .border_glass { border-color: rgba(160, 142, 122, 0.22); }
   .form-field { width: 100%; border-radius: 0.75rem; border: 1px solid rgba(160, 142, 122, 0.28); background: rgba(52, 53, 53, 0.72); color: #e3e2e2; padding: 0.8rem 0.95rem; outline: none; }
   .form-field:focus { border-color: #f59e0b; box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.5); }
+  body.day-mode { background: #f7f7f2; color: #111827; }
+  body.day-mode .surface_glass { background-color: rgba(255, 255, 255, 0.84); border-color: rgba(17, 24, 39, 0.12); }
+  body.day-mode .bg-background\/80 { background-color: rgba(255, 255, 255, 0.92); }
+  body.day-mode .text-on-surface { color: #111827; }
+  body.day-mode .text-on-surface-variant { color: #525252; }
+  body.day-mode .form-field { background: rgba(255, 255, 255, 0.94); color: #111827; border-color: rgba(17, 24, 39, 0.16); }
   @media (max-width: 640px) { .cart-shell { padding-inline: 1rem; } .cart-card { grid-template-columns: 5.25rem 1fr; } }
 </style>
 </head>
@@ -61,6 +67,7 @@
   </section>
 </main>
 <script>
+  const THEME_KEY = 'sssign-theme';
   const CART_KEY = 'sssign-readymade-cart';
   const WHATSAPP_NUMBER = '919642537014';
   const UPI_ID = '9642537014@ybl';
@@ -181,8 +188,15 @@
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
   }
 
+  function applySavedTheme() {
+    document.body.classList.toggle('day-mode', localStorage.getItem(THEME_KEY) === 'day');
+  }
+
   document.getElementById('order-button').addEventListener('click', sendOrder);
-  document.addEventListener('DOMContentLoaded', renderCart);
+  document.addEventListener('DOMContentLoaded', function() {
+    applySavedTheme();
+    renderCart();
+  });
 </script>
 </body>
 </html>

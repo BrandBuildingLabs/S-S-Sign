@@ -509,8 +509,20 @@
             if (event.key === 'Escape') setMobileMenu(false);
         });
 
-        themeToggle.addEventListener('click', () => {
+        const THEME_KEY = 'sssign-theme';
+
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem(THEME_KEY);
+            const isDayMode = savedTheme === 'day';
+            document.body.classList.toggle('day-mode', isDayMode);
+            themeToggle?.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
+        }
+
+        applySavedTheme();
+
+        themeToggle?.addEventListener('click', () => {
             const isDayMode = document.body.classList.toggle('day-mode');
+            localStorage.setItem(THEME_KEY, isDayMode ? 'day' : 'night');
             themeToggle.setAttribute('aria-label', isDayMode ? 'Switch to night mode' : 'Switch to day mode');
             themeToggle.classList.remove('slide');
             void themeToggle.offsetWidth;
