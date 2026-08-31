@@ -62,7 +62,9 @@
 </main>
 <script>
   const CART_KEY = 'sssign-readymade-cart';
-  const WHATSAPP_NUMBER = '918332099014';
+  const WHATSAPP_NUMBER = '919642537014';
+  const UPI_ID = '9642537014@ybl';
+  const PAYEE_NAME = 'Mohd Naseer Uddin';
 
   function readCart() {
     try {
@@ -132,6 +134,26 @@
     renderCart();
   }
 
+  function priceToNumber(price) {
+    const value = String(price || '').replace(/[^0-9.]/g, '');
+    return Number(value || 0);
+  }
+
+  function calculateTotal(cart) {
+    return cart.reduce(function(total, item) {
+      return total + (priceToNumber(item.price) * Number(item.quantity || 1));
+    }, 0);
+  }
+
+  function buildUpiLink(amount) {
+    const note = 'Readymade Order S S Sign';
+    return 'upi://pay?pa=' + encodeURIComponent(UPI_ID) +
+      '&pn=' + encodeURIComponent(PAYEE_NAME) +
+      '&am=' + encodeURIComponent(amount) +
+      '&cu=INR' +
+      '&tn=' + encodeURIComponent(note);
+  }
+
   function sendOrder() {
     const cart = readCart();
     const name = document.getElementById('customer-name').value.trim();
@@ -139,7 +161,10 @@
     const note = document.getElementById('cart-note');
     if (!cart.length) { note.textContent = 'Please add a product before ordering.'; return; }
     if (!name || !address) { note.textContent = 'Please enter your name and address.'; return; }
-    const lines = ['Readymade Product Order - S S SIGN', '', 'Customer Name: ' + name, 'Address: ' + address, '', 'Products:'];
+
+    const amount = calculateTotal(cart);
+    const upiLink = buildUpiLink(amount);
+    const lines = ['*Readymade Product Order - S S SIGN*', '', 'Customer Name: ' + name, 'Address: ' + address, '', 'Products:'];
     cart.forEach(function(item, index) {
       lines.push((index + 1) + '. Product ID: ' + item.id);
       lines.push('   Name: ' + item.name);
@@ -147,6 +172,12 @@
       lines.push('   Size: ' + (item.size || 'Standard ready-made size'));
       lines.push('   Price: ' + item.price);
     });
+    lines.push('');
+    lines.push('Total Amount: Rs ' + amount.toLocaleString('en-IN'));
+    lines.push('');
+    lines.push('*Click link below to pay via UPI (GPay/PhonePe/Paytm):*');
+    lines.push(upiLink);
+
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
   }
 
