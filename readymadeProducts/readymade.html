@@ -142,6 +142,19 @@
     .product-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
     .cart-link { min-width: 2.75rem; min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; }
     .cart-action { min-height: 2.375rem; }
+    .banner-modal[hidden] { display: none; }
+    .banner-modal { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 1rem; background: rgba(0, 0, 0, 0.74); backdrop-filter: blur(10px); }
+    .banner-panel { width: min(100%, 980px); max-height: min(92dvh, 760px); overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); border-radius: 1rem; }
+    .banner-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: #050505; }
+    .banner-gallery img { flex: 0 0 100%; width: 100%; min-height: 420px; max-height: 720px; object-fit: cover; scroll-snap-align: center; }
+    .size-chip { border: 1px solid rgba(160, 142, 122, 0.28); }
+    .size-chip.active { background: #f59e0b; border-color: #f59e0b; color: #0a0a0a; }
+    .selected-size-pill { min-height: 1.35rem; }
+    @media (max-width: 767px) {
+      .banner-panel { grid-template-columns: 1fr; max-height: 90dvh; }
+      .banner-gallery img { min-height: 56dvh; max-height: 56dvh; }
+      .banner-copy { padding: 1rem; }
+    }
     .ready-header { height: 5rem; }
     .ready-header .site-nav { width: 100%; padding-left: 5.25rem; padding-right: 9.25rem; }
     .ready-header .mobile-menu-toggle { position: absolute; }
@@ -170,13 +183,17 @@
       .ready-mobile-brand { font-size: 1.05rem; max-width: 9rem; overflow: hidden; text-overflow: ellipsis; }
     }
     @media (max-width: 520px) {
-      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.45rem; }
       .ready-title { font-size: 2rem; line-height: 1.1; }
       .ready-copy { font-size: 0.95rem; line-height: 1.5; }
       .product-card-hover { border-radius: 0.75rem; }
-      .product-card-hover .p-4 { padding: 0.75rem; }
-      .product-card-hover h3 { font-size: 0.86rem; }
+      .product-card-hover .p-4 { padding: 0.45rem; }
+      .product-card-hover h3 { font-size: 0.72rem; line-height: 1.25; }
       .product-card-hover img { transform: none !important; }
+      .cart-action { min-height: 1.85rem; font-size: 0.66rem; gap: 0.15rem; }
+      .cart-action .material-symbols-outlined { font-size: 0.9rem; }
+      .product-card-hover .font-body-lg { font-size: 0.78rem; line-height: 1.2; }
+      .product-card-hover .font-label-sm { font-size: 0.58rem; }
     }
     @media (max-width: 360px) {
       .product-grid { grid-template-columns: 1fr; }
@@ -292,7 +309,7 @@
 <!-- Product Grid -->
 <div class="product-grid grid gap-4 md:gap-6">
 <!-- Product Card 1 -->
-<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(1)">
+<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLA-ACRYLIC" data-selected-size="2 X 1 ft" data-banner-product="mashalla-acrylic" onclick="openQuickView(1)">
 <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
 <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
 </div>
@@ -300,7 +317,7 @@
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
 </button>
 <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern, minimalist acrylic house name plate featuring a clear glass-like finish with raised matte black lettering, mounted onto a sleek dark grey wall. The lighting is soft and architectural, highlighting the precise laser-cut edges and casting subtle drop shadows that emphasize depth. The aesthetic is premium, contemporary, and highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8JB7DpCnGLpyo4WDiXeFzUYLSevPy7gpVCQiLkjmNAlBi_Gq5qgCyQKAAozgJIEmrLQeQB9G6nSB4mqI8sl5MoNa7yEMH9gEW4EbvXdNnKMPOv2CyjZ_ZrSuyfFuYU7EiCAlmqdankNaT4zMJC-HVbHlnW_Il3ni4aGBzuubKHuK35gC_jcnfZ26V_CzpDS7lcUW7fkSAQn290_gsMs4lIJY-R2aEuzSWKwOX9dcgwyoY8Xo1tTekyw"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Mashalla Acrylic ready-made Islamic wall art nameplate with glossy acrylic finish, clean cut lettering, and elegant decorative presentation for homes, offices, and prayer spaces." src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 </div>
 <div class="p-4 flex flex-col flex-grow justify-between gap-3">
@@ -309,11 +326,12 @@
 <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="font-label-sm text-on-surface-variant">4.8 (124)</span>
 </div>
-<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Premium Clear Acrylic House Name Plate</h3>
+<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Mashalla Acrylic</h3>
 </div>
 <div class="flex flex-col gap-2">
 <div class="flex items-baseline gap-2">
 <span class="font-body-lg font-semibold text-primary">₹1,999</span>
+<span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
 <span class="font-label-sm text-on-surface-variant line-through">₹2,499</span>
 </div>
 <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
@@ -412,6 +430,39 @@
 </article>
 </div>
 </main>
+<section id="productBanner" class="banner-modal" hidden aria-hidden="true">
+<div class="banner-panel surface_glass border border_glass">
+<div class="banner-gallery" aria-label="Mashalla Acrylic product photos">
+<img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg" alt="Mashalla Acrylic product sample 1"/>
+<img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143718.jpg" alt="Mashalla Acrylic product sample 2"/>
+<img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143743.jpg" alt="Mashalla Acrylic product sample 3"/>
+</div>
+<div class="banner-copy bg-surface-container-low p-6 flex flex-col gap-5">
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="font-label-sm uppercase tracking-[0.18em] text-on-surface-variant">Ready Made</p>
+<h2 class="text-primary text-3xl font-bold leading-tight mt-2">Mashalla Acrylic</h2>
+</div>
+<button type="button" class="surface_glass border border_glass rounded-full h-11 w-11 flex items-center justify-center text-on-surface hover:text-primary" onclick="closeProductBanner()" aria-label="Close product banner">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Glossy acrylic Mashalla wall decor with a clean ready-made finish. Choose a sample size, add it to cart, and send the order on WhatsApp.</p>
+<div>
+<p class="font-label-md text-on-surface mb-3">Sample Sizes</p>
+<div class="grid grid-cols-3 gap-2" id="sampleSizeButtons">
+<button type="button" class="size-chip active rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="2 X 1 ft" onclick="selectSampleSize('2 X 1 ft')">2 X 1 ft</button>
+<button type="button" class="size-chip rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="3 X 1.5 ft" onclick="selectSampleSize('3 X 1.5 ft')">3 X 1.5 ft</button>
+<button type="button" class="size-chip rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="4 X 2 ft" onclick="selectSampleSize('4 X 2 ft')">4 X 2 ft</button>
+</div>
+</div>
+<a href="cart.html" class="w-full bg-primary-container text-[#0a0a0a] font-label-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Go to Cart</span>
+</a>
+</div>
+</div>
+</section>
 <footer class="bg-surface-container-lowest py-section-gap border-t border-outline-variant/10 hidden md:grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop lg:ml-80">
 <div class="col-span-1">
 <div class="text-primary font-bold font-display-lg text-headline-md tracking-tighter mb-4">S S SIGN</div>
@@ -499,7 +550,7 @@
                 name: title,
                 price: priceNode ? priceNode.textContent.trim() : 'Price on request',
                 image: image,
-                size: 'Standard ready-made size'
+                size: card.dataset.selectedSize || 'Standard ready-made size'
             };
         }
 
@@ -586,7 +637,15 @@
         }
 
         function openQuickView(id) {
-            console.log('Open Quick View for product:', id);
+            if (id !== 1) {
+                console.log('Open Quick View for product:', id);
+                return;
+            }
+            const banner = document.getElementById('productBanner');
+            if (!banner) return;
+            banner.hidden = false;
+            banner.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         }
 
         document.addEventListener('DOMContentLoaded', setupProducts);
