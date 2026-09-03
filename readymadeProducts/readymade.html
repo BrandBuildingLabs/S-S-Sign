@@ -107,98 +107,7 @@
             },
         }
     </script>
-<style>
-        body {
-            background-color: #0a0a0a;
-            color: #e3e2e2;
-        }
-        .surface_glass {
-            background-color: rgba(26, 28, 28, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .border_glass {
-            border-color: rgba(160, 142, 122, 0.2);
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
-        .product-card-hover {
-            transition: all 0.3s ease;
-        }
-        .product-card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.1);
-            border-color: rgba(245, 158, 11, 0.3);
-        }
-    </style>
-<style>
-    body { min-height: 100dvh; }
-    .product-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
-    .cart-link { min-width: 2.75rem; min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; }
-    .cart-action { min-height: 2.375rem; }
-    .banner-modal[hidden] { display: none; }
-    .banner-modal { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 1rem; background: rgba(0, 0, 0, 0.74); backdrop-filter: blur(10px); }
-    .banner-panel { width: min(100%, 980px); max-height: min(92dvh, 760px); overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); border-radius: 1rem; }
-    .banner-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: #050505; }
-    .banner-gallery img { flex: 0 0 100%; width: 100%; min-height: 420px; max-height: 720px; object-fit: cover; scroll-snap-align: center; }
-    .size-chip { border: 1px solid rgba(160, 142, 122, 0.28); }
-    .size-chip.active { background: #f59e0b; border-color: #f59e0b; color: #0a0a0a; }
-    .selected-size-pill { min-height: 1.35rem; }
-    @media (max-width: 767px) {
-      .banner-panel { grid-template-columns: 1fr; max-height: 90dvh; }
-      .banner-gallery img { min-height: 56dvh; max-height: 56dvh; }
-      .banner-copy { padding: 1rem; }
-    }
-    .ready-header { height: 5rem; }
-    .ready-header .site-nav { width: 100%; padding-left: 5.25rem; padding-right: 9.25rem; }
-    .ready-header .mobile-menu-toggle { position: absolute; }
-    .ready-cart-link { position: absolute; left: auto; right: 1rem; top: 1.1rem; z-index: 31; width: 2.75rem; height: 2.75rem; }
-    .ready-theme-toggle { position: absolute !important; left: auto !important; right: 4.25rem !important; top: 1.05rem !important; z-index: 31 !important; }
-    .ready-mobile-brand { top: 1.45rem; }
-    body.ready-page.day-mode { background: #f7f7f2; color: #111827; }
-    body.ready-page.day-mode .ready-header { background: rgba(255, 255, 255, 0.92); border-color: rgba(17, 24, 39, 0.12); }
-    body.ready-page.day-mode .surface_glass { background-color: rgba(255, 255, 255, 0.82); border-color: rgba(17, 24, 39, 0.12); }
-    body.ready-page.day-mode .bg-\[\#0a0a0a\] { background-color: #f7f7f2; }
-    body.ready-page.day-mode .text-on-surface { color: #111827; }
-    body.ready-page.day-mode .text-on-surface-variant { color: #525252; }
-    body.ready-page.day-mode .bg-background\/80 { background-color: rgba(255, 255, 255, 0.9); }
-    body.ready-page.day-mode .bg-surface-container-low { background-color: #ffffff; }
-    body.ready-page.day-mode .bg-surface-container-lowest { background-color: #f3f4f6; }
-    body.ready-page.day-mode .bg-surface-container-highest { background-color: #ffffff; }
-    body.ready-page.day-mode .bg-surface-variant { background-color: #e5e7eb; }
-    body.ready-page.day-mode .site-nav { background: rgba(255, 255, 255, 0.92); border-bottom-color: rgba(17, 24, 39, 0.12); }
-    body.ready-page.day-mode .nav-brand, body.ready-page.day-mode .mobile-brand { color: #111827; }
-    body.ready-page.day-mode .nav-link { color: rgba(17, 24, 39, 0.66); }
-    body.ready-page.day-mode .nav-link:hover, body.ready-page.day-mode .nav-link.active, body.ready-page.day-mode .nav-link-star { color: #b45309; }
-    @media (max-width: 767px) {
-      .ready-header { height: 4.5rem; }
-      .ready-theme-toggle { left: auto !important; right: 3.65rem !important; top: 1rem !important; transform: scale(0.82); transform-origin: top right; }
-      .ready-cart-link { left: auto; right: 0.65rem; top: 1rem; width: 2.55rem; height: 2.55rem; }
-      .ready-mobile-brand { font-size: 1.05rem; max-width: 9rem; overflow: hidden; text-overflow: ellipsis; }
-    }
-    @media (max-width: 520px) {
-      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.45rem; }
-      .ready-title { font-size: 2rem; line-height: 1.1; }
-      .ready-copy { font-size: 0.95rem; line-height: 1.5; }
-      .product-card-hover { border-radius: 0.75rem; }
-      .product-card-hover .p-4 { padding: 0.45rem; }
-      .product-card-hover h3 { font-size: 0.72rem; line-height: 1.25; }
-      .product-card-hover img { transform: none !important; }
-      .cart-action { min-height: 1.85rem; font-size: 0.66rem; gap: 0.15rem; }
-      .cart-action .material-symbols-outlined { font-size: 0.9rem; }
-      .product-card-hover .font-body-lg { font-size: 0.78rem; line-height: 1.2; }
-      .product-card-hover .font-label-sm { font-size: 0.58rem; }
-    }
-    @media (max-width: 360px) {
-      .product-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+<link rel="stylesheet" href="../css/readymade.css"/>
   </head>
 <body class="ready-page bg-[#0a0a0a] min-h-screen text-on-surface font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopAppBar -->
@@ -308,161 +217,282 @@
 </div>
 <!-- Product Grid -->
 <div class="product-grid grid gap-4 md:gap-6">
-<!-- Product Card 1 -->
-<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLA-ACRYLIC" data-selected-size="2 X 1 ft" data-banner-product="mashalla-acrylic" onclick="openQuickView(1)">
-<div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
-<span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
-</div>
-<button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
-</button>
-<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Mashalla Acrylic ready-made Islamic wall art nameplate with glossy acrylic finish, clean cut lettering, and elegant decorative presentation for homes, offices, and prayer spaces." src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</div>
-<div class="p-4 flex flex-col flex-grow justify-between gap-3">
-<div>
-<div class="flex items-center gap-1 mb-1 text-primary">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-on-surface-variant">4.8 (124)</span>
-</div>
-<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Mashalla Acrylic</h3>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex items-baseline gap-2">
-<span class="font-body-lg font-semibold text-primary">₹1,999</span>
-<span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
-<span class="font-label-sm text-on-surface-variant line-through">₹2,499</span>
-</div>
-<button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
-<span class="material-symbols-outlined text-[18px]">add</span>
-<span>Add</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product Card 2 -->
-<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(2)">
-<div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
-<span class="bg-surface-container-highest text-on-surface border border_glass font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">Best Seller</span>
-</div>
-<button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
-</button>
-<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A brushed stainless steel directional office sign with engraved black typography, installed on a warm oak wood paneled wall. Professional, bright office lighting creates sharp highlights on the metallic surface, emphasizing its luxury corporate aesthetic and flawless industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeO6kXVr3K3euoYaKtGxdnQUgyggHENOwxVs3lspu6vKmVYS81OOwbNhi-viGeotRRmkt7z6dgrfTAMjmqY4tFrI5eSwMnSdgQphcJZzzTaKeXwxGBgQah7I7iUQeaN619tYPDXFDpbNjhAMfZ738qAeVc6IwMnX36tLpc3POG_1jIF9ZEL7GjOSLBqOA4TDHU8ApqoLt3lWkucOm6TMHmkHKF7YY2K0SQp_Ky5ZeTYXCudH5k4bT4fA"/>
-</div>
-<div class="p-4 flex flex-col flex-grow justify-between gap-3">
-<div>
-<div class="flex items-center gap-1 mb-1 text-primary">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-on-surface-variant">4.9 (89)</span>
-</div>
-<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Brushed Stainless Steel Directional Sign</h3>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex items-baseline gap-2">
-<span class="font-body-lg font-semibold text-primary">₹3,450</span>
-</div>
-<button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
-<span class="material-symbols-outlined text-[18px]">add</span>
-<span>Add</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product Card 3 -->
-<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(3)">
-<button class="absolute top-2 right-2 z-10 text-error p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
-</button>
-<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A matte black metal cutout wall decor piece depicting a stylized geometric compass rose, mounted against an exposed brick wall. Warm, moody Edison bulb lighting casts dramatic shadows that enhance the three-dimensional floating effect of the metalwork. The vibe is rustic yet refined and highly modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1X6pAr9tWvU5a8YLcNza1XfG27hW--CicoK5oltY97WqKsddgeqWVVh1-TdtPee8Pv8lgJ4yxVdR4dGJNvrv_UUaVhaWmjdfB0VZpW32tlIgnGqFTZurFs7v5z8_kaP074e5EEVYTwTVF3gXlPAgkeNQeeHhvMx21GSDKawJ3HlW6-7Q30zclCyT6PLy5UKkDGQOKo4xcfs7sU5RWb4qR0yxFKX3ZGM9f91nBHrTO6Xhs_8sGIPLrvA"/>
-</div>
-<div class="p-4 flex flex-col flex-grow justify-between gap-3">
-<div>
-<div class="flex items-center gap-1 mb-1 text-primary">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-on-surface-variant">4.6 (45)</span>
-</div>
-<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Matte Black Metal Compass Wall Art</h3>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex items-baseline gap-2">
-<span class="font-body-lg font-semibold text-primary">₹4,200</span>
-<span class="font-label-sm text-on-surface-variant line-through">₹5,000</span>
-</div>
-<button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
-<span class="material-symbols-outlined text-[18px]">add</span>
-<span>Add</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product Card 4 -->
-<article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" onclick="openQuickView(4)">
-<button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
-</button>
-<div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious backlit LED address plaque featuring frosted glass and a dark bronze frame, illuminated with warm 3000K light against a dark stucco exterior wall at twilight. The glowing numbers are crisp and legible, evoking high-end residential architecture and sophisticated curb appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANzwZcjNReNhoPvfcgd-7MeygubxOwWGXfRX_hEIn--WtiT9f-9mViCO2IcHg9mgUesz8FcimFHgam9z8lHcBqOriYEzd0oN2an4cQmjnymO1eJEvg2DDS83IBdXV6Nl0SQ128KBlFnQnrd9nFuqsSzdP_GAIAGeBe_9B_1aoja1wCMJisfOyzDbXEPlz1jLqIAB0nULj0c8u2LxUS4A2h9nrwRRsCKggCWE7-XQ_Z9RriB9dmVpYbYA"/>
-</div>
-<div class="p-4 flex flex-col flex-grow justify-between gap-3">
-<div>
-<div class="flex items-center gap-1 mb-1 text-primary">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-on-surface-variant">5.0 (210)</span>
-</div>
-<h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Illuminated LED Address Plaque - Bronze</h3>
-</div>
-<div class="flex flex-col gap-2">
-<div class="flex items-baseline gap-2">
-<span class="font-body-lg font-semibold text-primary">₹8,999</span>
-</div>
-<!-- State: Added -->
-<div class="w-full bg-surface-container-highest border border_glass rounded-lg flex items-center justify-between overflow-hidden h-[38px]" onclick="event.stopPropagation()">
-<button class="px-4 py-2 hover:bg-surface-variant text-on-surface transition-colors" onclick="updateQty(this, -1)">-</button>
-<span class="font-label-md font-bold text-primary">1</span>
-<button class="px-4 py-2 hover:bg-surface-variant text-on-surface transition-colors" onclick="updateQty(this, 1)">+</button>
-</div>
-</div>
-</div>
-</article>
+        <!-- Product Card 1 — Mashalla Acrylic -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLA-ACRYLIC" data-selected-size="2 X 1 ft" data-banner-product="mashalla-acrylic" onclick="openQuickView(1)">
+          <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
+            <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
+          </div>
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Mashalla Acrylic ready-made Islamic wall art nameplate with glossy acrylic finish, clean cut lettering, and elegant decorative presentation for homes, offices, and prayer spaces." src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-1 mb-1 text-primary">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="font-label-sm text-on-surface-variant">4.8 (124)</span>
+              </div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Mashalla Acrylic</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="font-body-lg font-semibold text-primary">₹1,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-label-sm text-on-surface-variant line-through">₹2,499</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+        <!-- Product Card 2 — 3A Combo -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3A-COMBO" data-selected-size="2 X 1 ft" data-banner-product="3a-combo" onclick="openQuickView(2)">
+          <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
+            <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
+          </div>
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="3A Combo ready-made product" src="Readymadephotos/3A-combo/IMG_20240301_205936.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">3A Combo</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 3 — 3B Combo -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3B-COMBO" data-selected-size="2 X 1 ft" data-banner-product="3b-combo" onclick="openQuickView(3)">
+          <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
+            <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
+          </div>
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="3B Combo ready-made product" src="Readymadephotos/3B-combo/IMG_20250510_132826.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">3B Combo</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 4 — 3C Combo -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3C-COMBO" data-selected-size="2 X 1 ft" data-banner-product="3c-combo" onclick="openQuickView(4)">
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="3C Combo ready-made product" src="Readymadephotos/3C-combo/IMG_20240430_215737.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">3C Combo</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 5 — Al-Falaq -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AL-FALAQ" data-selected-size="2 X 1 ft" data-banner-product="al-falaq" onclick="openQuickView(5)">
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Al-Falaq ready-made product" src="Readymadephotos/Al-falaq/IMG_2020307_235757.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Al-Falaq</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 6 — An-Nas Surah -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AN-NAS-SURAH" data-selected-size="2 X 1 ft" data-banner-product="an-nas-surah" onclick="openQuickView(6)">
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="An-Nas Surah ready-made product" src="Readymadephotos/An-Nas%20Surah/IMG_20200429_210347.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">An-Nas Surah</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 7 — Ayatul Kursi -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AYATUL-KURSI" data-selected-size="2 X 1 ft" data-banner-product="ayatul-kursi" onclick="openQuickView(7)">
+          <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
+            <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">Popular</span>
+          </div>
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Ayatul Kursi ready-made product" src="Readymadephotos/Ayatul%20Kursi/IMG_20241206_155253.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Ayatul Kursi</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 8 — Mashallah Laquwata -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLAH-LAQUWATA" data-selected-size="2 X 1 ft" data-banner-product="mashallah-laquwata" onclick="openQuickView(8)">
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Mashallah Laquwata ready-made product" src="Readymadephotos/Mashallah%20Laquwata/IMG_2020927_152536.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Mashallah Laquwata</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product Card 9 — Mashallah SS Letters -->
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLAH-SS-LETTERS" data-selected-size="2 X 1 ft" data-banner-product="mashallah-ss-letters" onclick="openQuickView(9)">
+          <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+          </button>
+          <div class="aspect-square w-full relative overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Mashallah SS Letters ready-made product" src="Readymadephotos/Mashallah%20SS%20letters/IMG_20250201_153709.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <h3 class="font-label-md text-on-surface line-clamp-2 leading-tight">Mashallah SS Letters</h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-baseline gap-2">
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+              </div>
+              <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
 </div>
 </main>
-<section id="productBanner" class="banner-modal" hidden aria-hidden="true">
-<div class="banner-panel surface_glass border border_glass">
-<div class="banner-gallery" aria-label="Mashalla Acrylic product photos">
-<img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg" alt="Mashalla Acrylic product sample 1"/>
-<img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143718.jpg" alt="Mashalla Acrylic product sample 2"/>
-<img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143743.jpg" alt="Mashalla Acrylic product sample 3"/>
-</div>
-<div class="banner-copy bg-surface-container-low p-6 flex flex-col gap-5">
-<div class="flex items-start justify-between gap-4">
-<div>
-<p class="font-label-sm uppercase tracking-[0.18em] text-on-surface-variant">Ready Made</p>
-<h2 class="text-primary text-3xl font-bold leading-tight mt-2">Mashalla Acrylic</h2>
-</div>
-<button type="button" class="surface_glass border border_glass rounded-full h-11 w-11 flex items-center justify-center text-on-surface hover:text-primary" onclick="closeProductBanner()" aria-label="Close product banner">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<p class="text-on-surface-variant leading-relaxed">Glossy acrylic Mashalla wall decor with a clean ready-made finish. Choose a sample size, add it to cart, and send the order on WhatsApp.</p>
-<div>
-<p class="font-label-md text-on-surface mb-3">Sample Sizes</p>
-<div class="grid grid-cols-3 gap-2" id="sampleSizeButtons">
-<button type="button" class="size-chip active rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="2 X 1 ft" onclick="selectSampleSize('2 X 1 ft')">2 X 1 ft</button>
-<button type="button" class="size-chip rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="3 X 1.5 ft" onclick="selectSampleSize('3 X 1.5 ft')">3 X 1.5 ft</button>
-<button type="button" class="size-chip rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="4 X 2 ft" onclick="selectSampleSize('4 X 2 ft')">4 X 2 ft</button>
-</div>
-</div>
-<a href="cart.html" class="w-full bg-primary-container text-[#0a0a0a] font-label-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined">shopping_cart</span>
-<span>Go to Cart</span>
-</a>
-</div>
-</div>
-</section>
+    <!-- Product Banner / Quick View Modal -->
+    <section id="productBanner" class="banner-modal" hidden aria-hidden="true">
+      <div class="banner-panel surface_glass border border_glass">
+        <div id="bannerGallery" class="banner-gallery" aria-label="Product photos">
+          <img src="Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg" alt="Product sample 1"/>
+        </div>
+        <div class="banner-copy bg-surface-container-low p-6 flex flex-col gap-5">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-label-sm uppercase tracking-[0.18em] text-on-surface-variant">Ready Made</p>
+              <h2 id="bannerTitle" class="text-primary text-3xl font-bold leading-tight mt-2">Mashalla Acrylic</h2>
+            </div>
+            <button type="button" class="surface_glass border border_glass rounded-full h-11 w-11 flex items-center justify-center text-on-surface hover:text-primary" onclick="closeProductBanner()" aria-label="Close product banner">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <p id="bannerDesc" class="text-on-surface-variant leading-relaxed">Glossy acrylic Mashalla wall decor with a clean ready-made finish. Choose a sample size, add it to cart, and send the order on WhatsApp.</p>
+          <div>
+            <p class="font-label-md text-on-surface mb-3">Sample Sizes</p>
+            <div class="grid grid-cols-3 gap-2" id="sampleSizeButtons">
+              <button type="button" class="size-chip active rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="2 X 1 ft" onclick="selectSampleSize('2 X 1 ft')">2 X 1 ft</button>
+              <button type="button" class="size-chip rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="3 X 1.5 ft" onclick="selectSampleSize('3 X 1.5 ft')">3 X 1.5 ft</button>
+              <button type="button" class="size-chip rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="4 X 2 ft" onclick="selectSampleSize('4 X 2 ft')">4 X 2 ft</button>
+            </div>
+          </div>
+          <button type="button" id="bannerAddToCart" class="w-full bg-primary-container text-[#0a0a0a] font-label-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98]" onclick="addFromBanner()">
+            <span class="material-symbols-outlined">add_shopping_cart</span>
+            <span>Add to Cart</span>
+          </button>
+          <a href="cart.html" class="w-full text-center text-on-surface-variant hover:text-primary font-label-sm py-1 transition-colors underline underline-offset-2">View Cart</a>
+        </div>
+      </div>
+    </section>
 <footer class="bg-surface-container-lowest py-section-gap border-t border-outline-variant/10 hidden md:grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop lg:ml-80">
 <div class="col-span-1">
 <div class="text-primary font-bold font-display-lg text-headline-md tracking-tighter mb-4">S S SIGN</div>
@@ -636,16 +666,239 @@
             updateCartBadge();
         }
 
-        function openQuickView(id) {
-            if (id !== 1) {
-                console.log('Open Quick View for product:', id);
-                return;
+        const PRODUCT_CATALOG = {
+            1: {
+                id: 'READY-MASHALLA-ACRYLIC',
+                key: 'mashalla-acrylic',
+                name: 'Mashalla Acrylic',
+                description: 'Glossy acrylic Mashalla wall decor with a clean ready-made finish. Choose a sample size, add it to cart, and send the order on WhatsApp.',
+                images: [
+                    'Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143711.jpg',
+                    'Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143718.jpg',
+                    'Readymadephotos/Mashalla%20Acrylic/IMG_20250917_143743.jpg'
+                ]
+            },
+            2: {
+                id: 'READY-3A-COMBO',
+                key: '3a-combo',
+                name: '3A Combo',
+                description: 'Premium 3A Combo ready-made Islamic wall art plaque set with precise craftsmanship. Choose your preferred size and order directly.',
+                images: [
+                    'Readymadephotos/3A-combo/IMG_20240301_205936.jpg',
+                    'Readymadephotos/3A-combo/IMG_20240301_205940.jpg',
+                    'Readymadephotos/3A-combo/IMG_20250307_235833.jpg'
+                ]
+            },
+            3: {
+                id: 'READY-3B-COMBO',
+                key: '3b-combo',
+                name: '3B Combo',
+                description: 'Elegant 3B Combo decorative Islamic frame collection crafted for home and office aesthetics. Select a size to add to your cart.',
+                images: [
+                    'Readymadephotos/3B-combo/IMG_20250510_132826.jpg',
+                    'Readymadephotos/3B-combo/IMG_20250510_132835.jpg',
+                    'Readymadephotos/3B-combo/IMG_20250510_132853.jpg'
+                ]
+            },
+            4: {
+                id: 'READY-3C-COMBO',
+                key: '3c-combo',
+                name: '3C Combo',
+                description: 'Modern 3C Combo ready-made decor piece featuring stylish cutwork and high-contrast styling for distinguished interior spaces.',
+                images: [
+                    'Readymadephotos/3C-combo/IMG_20240430_215737.jpg',
+                    'Readymadephotos/3C-combo/IMG_20240430_215743.jpg'
+                ]
+            },
+            5: {
+                id: 'READY-AL-FALAQ',
+                key: 'al-falaq',
+                name: 'Al-Falaq',
+                description: 'Surah Al-Falaq decorative Islamic calligraphy wall display with immaculate detailing. Built for instant, hassle-free installation.',
+                images: [
+                    'Readymadephotos/Al-falaq/IMG_2020307_235757.jpg',
+                    'Readymadephotos/Al-falaq/IMG_20231202_205439.jpg'
+                ]
+            },
+            6: {
+                id: 'READY-AN-NAS-SURAH',
+                key: 'an-nas-surah',
+                name: 'An-Nas Surah',
+                description: 'Surah An-Nas calligraphy wall art plaque crafted with high-durability materials. Select size and add to cart.',
+                images: [
+                    'Readymadephotos/An-Nas%20Surah/IMG_20200429_210347.jpg',
+                    'Readymadephotos/An-Nas%20Surah/IMG_2020307_235814.jpg',
+                    'Readymadephotos/An-Nas%20Surah/IMG_20231202_205442.jpg'
+                ]
+            },
+            7: {
+                id: 'READY-AYATUL-KURSI',
+                key: 'ayatul-kursi',
+                name: 'Ayatul Kursi',
+                description: 'Masterpiece Ayatul Kursi wall decor designed for living rooms, prayer halls, and entrances with elegant script.',
+                images: [
+                    'Readymadephotos/Ayatul%20Kursi/IMG_20241206_155253.jpg',
+                    'Readymadephotos/Ayatul%20Kursi/IMG_20241206_155257.jpg',
+                    'Readymadephotos/Ayatul%20Kursi/IMG_20250107_121223.jpg',
+                    'Readymadephotos/Ayatul%20Kursi/IMG_20250107_121250.jpg',
+                    'Readymadephotos/Ayatul%20Kursi/IMG_20250307_235752.jpg'
+                ]
+            },
+            8: {
+                id: 'READY-MASHALLAH-LAQUWATA',
+                key: 'mashallah-laquwata',
+                name: 'Mashallah Laquwata',
+                description: 'Mashallah La Quwwata Illa Billah luxury art plaque with bold typography and sophisticated finishing touches.',
+                images: [
+                    'Readymadephotos/Mashallah%20Laquwata/IMG_2020927_152536.jpg',
+                    'Readymadephotos/Mashallah%20Laquwata/IMG_20240928_193202.jpg',
+                    'Readymadephotos/Mashallah%20Laquwata/IMG_20241021_185131.jpg'
+                ]
+            },
+            9: {
+                id: 'READY-MASHALLAH-SS-LETTERS',
+                key: 'mashallah-ss-letters',
+                name: 'Mashallah SS Letters',
+                description: 'Stainless steel 3D Mashallah lettering sign with weather-resistant metallic luster. Suitable for homes and businesses.',
+                images: [
+                    'Readymadephotos/Mashallah%20SS%20letters/IMG_20250201_153709.jpg'
+                ]
             }
+        };
+
+        let currentActiveProductId = 1;
+        let bannerSelectedSize = '2 X 1 ft';
+
+        function openQuickView(id) {
+            const prod = PRODUCT_CATALOG[id];
+            if (!prod) return;
+
+            currentActiveProductId = id;
+
+            // Update banner title & description
+            const titleEl = document.getElementById('bannerTitle');
+            const descEl = document.getElementById('bannerDesc');
+            const galleryEl = document.getElementById('bannerGallery');
+
+            if (titleEl) titleEl.textContent = prod.name;
+            if (descEl) descEl.textContent = prod.description;
+
+            // Populate images
+            if (galleryEl && prod.images && prod.images.length) {
+                galleryEl.innerHTML = prod.images.map(function (src, i) {
+                    return '<img src="' + src + '" alt="' + prod.name + ' product photo ' + (i + 1) + '"/>';
+                }).join('');
+                galleryEl.scrollLeft = 0;
+            }
+
+            // Sync size chips with the product's current selected size
+            const card = document.querySelector('[data-product-id="' + prod.id + '"]') || document.querySelector('[data-banner-product="' + prod.key + '"]');
+            const initialSize = (card && card.dataset.selectedSize) ? card.dataset.selectedSize : '2 X 1 ft';
+            bannerSelectedSize = initialSize;
+
+            document.querySelectorAll('#sampleSizeButtons .size-chip').forEach(function (chip) {
+                chip.classList.toggle('active', chip.dataset.size === initialSize);
+            });
+
             const banner = document.getElementById('productBanner');
             if (!banner) return;
             banner.hidden = false;
             banner.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductBanner() {
+            const banner = document.getElementById('productBanner');
+            if (!banner) return;
+            banner.hidden = true;
+            banner.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        /* Close banner when clicking the backdrop (outside the panel) */
+        document.getElementById('productBanner')?.addEventListener('click', function (e) {
+            if (e.target === this) closeProductBanner();
+        });
+
+        /* Close banner on Escape */
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const banner = document.getElementById('productBanner');
+                if (banner && !banner.hidden) {
+                    closeProductBanner();
+                }
+            }
+        });
+
+        /* ---------- Banner size selection ---------- */
+        function selectSampleSize(size) {
+            bannerSelectedSize = size;
+
+            // Toggle active styling on chips
+            document.querySelectorAll('#sampleSizeButtons .size-chip').forEach(function (chip) {
+                chip.classList.toggle('active', chip.dataset.size === size);
+            });
+
+            // Update the corresponding product card's size data & pill label
+            const prod = PRODUCT_CATALOG[currentActiveProductId];
+            if (prod) {
+                const card = document.querySelector('[data-product-id="' + prod.id + '"]') || document.querySelector('[data-banner-product="' + prod.key + '"]');
+                if (card) {
+                    card.dataset.selectedSize = size;
+                    const pill = card.querySelector('[data-selected-size-label]');
+                    if (pill) pill.textContent = size;
+                }
+            }
+        }
+
+        /* ---------- Add to cart from the banner ---------- */
+        function addFromBanner() {
+            const prod = PRODUCT_CATALOG[currentActiveProductId];
+            if (!prod) return;
+
+            const card = document.querySelector('[data-product-id="' + prod.id + '"]') || document.querySelector('[data-banner-product="' + prod.key + '"]');
+            if (!card) return;
+
+            // Ensure card has latest size
+            card.dataset.selectedSize = bannerSelectedSize;
+
+            const product = productFromCard(card);
+            product.size = bannerSelectedSize;
+
+            const cart = readCart();
+            const cartId = product.id + '--' + bannerSelectedSize;
+            const existing = cart.find(function (item) { return item.id === cartId; });
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    id: cartId,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    size: bannerSelectedSize,
+                    quantity: 1
+                });
+            }
+
+            writeCart(cart);
+            updateCartBadge();
+
+            // Visual feedback on banner button
+            const btn = document.getElementById('bannerAddToCart');
+            if (btn) {
+                const original = btn.innerHTML;
+                btn.innerHTML = '<span class="material-symbols-outlined">check</span><span>Added!</span>';
+                btn.classList.add('opacity-80');
+                setTimeout(function () {
+                    btn.innerHTML = original;
+                    btn.classList.remove('opacity-80');
+                }, 1200);
+            }
+
+            // Sync product card quantity state in the grid
+            setupProducts();
         }
 
         document.addEventListener('DOMContentLoaded', setupProducts);
