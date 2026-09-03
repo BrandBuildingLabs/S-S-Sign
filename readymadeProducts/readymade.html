@@ -157,33 +157,8 @@
 <span class="absolute -top-1 -right-1 bg-primary-container text-[#0a0a0a] font-label-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center hidden" id="cart-badge">0</span>
 </a>
 </header>
-<!-- Navigation Drawer (Desktop) -->
-<aside class="bg-surface-container-low border-r border-outline-variant/20 shadow-2xl h-full w-80 hidden lg:flex flex-col gap-stack-md p-stack-lg fixed left-0 top-16 z-40">
-<h2 class="font-headline-md text-primary">Collections</h2>
-<nav class="flex flex-col gap-2 mt-4">
-<a class="flex items-center gap-4 bg-secondary-container text-on-secondary-container font-semibold rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
-<span class="material-symbols-outlined">new_releases</span>
-<span class="font-body-md text-body-md">New Arrivals</span>
-</a>
-<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
-<span class="material-symbols-outlined">star</span>
-<span class="font-body-md text-body-md">Bestsellers</span>
-</a>
-<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
-<span class="material-symbols-outlined">visibility</span>
-<span class="font-body-md text-body-md">Outdoor Signage</span>
-</a>
-<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
-<span class="material-symbols-outlined">wb_iridescent</span>
-<span class="font-body-md text-body-md">Indoor Displays</span>
-</a>
-<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg px-4 py-3 hover:translate-x-1 transition-transform cursor-pointer" href="#">
-<span class="material-symbols-outlined">edit</span>
-<span class="font-body-md text-body-md">Custom Orders</span>
-</a>
-</nav>
-</aside>
-<main class="pt-24 pb-32 lg:pl-[340px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto min-h-screen">
+
+<main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto min-h-screen">
 <!-- Breadcrumbs -->
 <nav class="flex items-center gap-2 font-label-sm text-on-surface-variant mb-6">
 <a class="hover:text-primary transition-colors" href="../index.html">Home</a>
@@ -216,7 +191,7 @@
 </div>
 </div>
 <!-- Product Grid -->
-<div class="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+<div class="product-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
         <!-- Product Card 1 — Mashalla Acrylic -->
         <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLA-ACRYLIC" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="mashalla-acrylic" onclick="openQuickView(1)">
           <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
@@ -540,19 +515,31 @@
         </div>
       </div>
     </section>
-<footer class="bg-surface-container-lowest py-section-gap border-t border-outline-variant/10 hidden md:grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop lg:ml-80">
-<div class="col-span-1">
-<div class="text-primary font-bold font-display-lg text-headline-md tracking-tighter mb-4">S S SIGN</div>
-<p class="font-label-md text-on-surface-variant">© 2024 S S SIGN. Precision Crafted.</p>
-</div>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Terms of Service</a>
-</div>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Shipping Info</a>
-<a class="text-on-surface-variant hover:text-tertiary transition-colors font-label-md" href="#">Contact Us</a>
-</div>
+<footer class="bg-surface-container-lowest py-12 border-t border-outline-variant/10">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="col-span-1">
+      <div class="text-primary font-bold text-2xl tracking-tight mb-3">S S SIGN</div>
+      <p class="font-label-md text-on-surface-variant">© 2024 S S SIGN. Precision Crafted Signage & Decor.</p>
+    </div>
+    <div class="flex flex-col gap-2.5">
+      <p class="font-label-md font-semibold text-on-surface mb-1">Quick Links</p>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../index.html">Home</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="readymade.html">Ready Made Products</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../preview.html">Products Gallery</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../estimator.html">Request Quote</a>
+    </div>
+    <div class="flex flex-col gap-2.5">
+      <p class="font-label-md font-semibold text-on-surface mb-1">Categories</p>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../index.html#residential">Residential Signage</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../index.html#commercial">Commercial Signage</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="cart.html">Shopping Cart</a>
+    </div>
+    <div class="flex flex-col gap-2.5">
+      <p class="font-label-md font-semibold text-on-surface mb-1">Contact</p>
+      <p class="text-on-surface-variant font-label-md">Hyderabad, Telangana</p>
+      <a class="text-primary hover:underline transition-colors font-label-md" href="https://wa.me/918332099014" target="_blank" rel="noopener">+91 8332099014</a>
+    </div>
+  </div>
 </footer>
 <script>
         const THEME_KEY = 'sssign-theme';
