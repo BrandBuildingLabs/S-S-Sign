@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
@@ -159,35 +159,20 @@
 </header>
 
 <main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto min-h-screen">
-<!-- Breadcrumbs -->
-<nav class="flex items-center gap-2 font-label-sm text-on-surface-variant mb-6">
-<a class="hover:text-primary transition-colors" href="../index.html">Home</a>
-<span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span class="text-primary">Ready Made Products</span>
-</nav>
-<!-- Header -->
-<header class="mb-section-gap">
-<h1 class="ready-title font-headline-lg-mobile md:font-headline-lg text-primary mb-4">Ready Made Products</h1>
-<p class="ready-copy font-body-lg text-on-surface-variant max-w-2xl">Explore our curated collection of ready-made products for home interiors, exteriors, decor, signage, and more. Precision crafted for immediate installation.</p>
+<!-- Header — description first, then title -->
+<header class="mb-8">
+<h1 class="ready-title font-headline-lg-mobile md:font-headline-lg text-primary">Ready Made Products</h1>
+<p class="ready-copy font-body-lg text-on-surface-variant max-w-2xl mb-3">Explore our curated collection of ready-made products for home interiors, exteriors, decor, signage, and more. Precision crafted for immediate installation.</p>
 </header>
-<!-- Search & Filter Controls -->
-<div class="sticky top-16 z-30 bg-[#0a0a0a]/90 backdrop-blur-xl py-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 mb-8 border-b border-outline-variant/10 md:border-none">
-<div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-<!-- Search -->
-<div class="relative w-full md:w-96 group">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
-<input class="w-full surface_glass border border_glass rounded-full py-3 pl-12 pr-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all placeholder:text-on-surface-variant/50" placeholder="Search signs, plaques, decor..." type="text"/>
-</div>
-<!-- Categories (Scrollable) -->
-<div id="categoryFilterContainer" class="w-full overflow-x-auto hide-scrollbar flex gap-2 pb-2 md:pb-0">
+<!-- Category Filter -->
+<div class="sticky top-16 z-30 bg-[#0a0a0a]/90 backdrop-blur-xl py-3 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 mb-8 border-b border-outline-variant/10 md:border-none">
+<div id="categoryFilterContainer" class="w-full overflow-x-auto hide-scrollbar flex gap-2 pb-1 md:pb-0">
 <button type="button" data-filter="all" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl font-label-md bg-primary-container text-[#0a0a0a] font-semibold flex-shrink-0 transition-transform active:scale-95">All Products</button>
 <button type="button" data-filter="home-interior" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Home Interior</button>
 <button type="button" data-filter="home-exterior" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Home Exterior</button>
 <button type="button" data-filter="office" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Office</button>
 <button type="button" data-filter="signage" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Signage</button>
 <button type="button" data-filter="personalized" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl font-label-md surface_glass border border_glass text-on-surface hover:bg-surface-variant/50 flex-shrink-0 transition-colors">Personalized</button>
-</div>
-<!-- Sort/Filter Mobile Trigger -->
 </div>
 </div>
 <!-- Product Grid -->
@@ -226,7 +211,7 @@
         </article>
 
         <!-- Product Card 2 — 3A Combo -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3A-COMBO" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="3a-combo" onclick="openQuickView(2)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3A-COMBO" data-category="home-interior" data-selected-size="1.5 X 1.5 ft" data-banner-product="3a-combo" onclick="openQuickView(2)">
           <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
             <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
           </div>
@@ -247,8 +232,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,199</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹7,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1.5 X 1.5 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -259,7 +244,7 @@
         </article>
 
         <!-- Product Card 3 — 3B Combo -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3B-COMBO" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="3b-combo" onclick="openQuickView(3)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3B-COMBO" data-category="home-interior" data-selected-size="1.5 X 1.5 ft" data-banner-product="3b-combo" onclick="openQuickView(3)">
           <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
             <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">New</span>
           </div>
@@ -280,8 +265,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,299</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹8,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1.5 X 1.5 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -292,7 +277,7 @@
         </article>
 
         <!-- Product Card 4 — 3C Combo -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3C-COMBO" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="3c-combo" onclick="openQuickView(4)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-3C-COMBO" data-category="home-interior" data-selected-size="1.5 X 1.5 ft" data-banner-product="3c-combo" onclick="openQuickView(4)">
           <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
             <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
           </button>
@@ -310,8 +295,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,099</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹9,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1.5 X 1.5 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -322,7 +307,7 @@
         </article>
 
         <!-- Product Card 5 — Al-Falaq -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AL-FALAQ" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="al-falaq" onclick="openQuickView(5)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AL-FALAQ" data-category="home-interior" data-selected-size="1.5 X 1.5 ft" data-banner-product="al-falaq" onclick="openQuickView(5)">
           <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
             <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
           </button>
@@ -340,8 +325,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹1,899</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1.5 X 1.5 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -352,7 +337,7 @@
         </article>
 
         <!-- Product Card 6 — An-Nas Surah -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AN-NAS-SURAH" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="an-nas-surah" onclick="openQuickView(6)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AN-NAS-SURAH" data-category="home-interior" data-selected-size="1.5 X 1.5 ft" data-banner-product="an-nas-surah" onclick="openQuickView(6)">
           <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
             <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
           </button>
@@ -370,8 +355,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹1,899</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1.5 X 1.5 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -382,7 +367,7 @@
         </article>
 
         <!-- Product Card 7 — Ayatul Kursi -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AYATUL-KURSI" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="ayatul-kursi" onclick="openQuickView(7)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-AYATUL-KURSI" data-category="home-interior" data-selected-size="1.5 X 1.5 ft" data-banner-product="ayatul-kursi" onclick="openQuickView(7)">
           <div class="absolute top-2 left-2 z-10 flex gap-1 flex-col">
             <span class="bg-primary-container text-[#0a0a0a] font-label-sm px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold">Popular</span>
           </div>
@@ -403,8 +388,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,499</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹2,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1.5 X 1.5 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -415,7 +400,7 @@
         </article>
 
         <!-- Product Card 8 — Mashallah Laquwata -->
-        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLAH-LAQUWATA" data-category="home-interior" data-selected-size="2 X 1 ft" data-banner-product="mashallah-laquwata" onclick="openQuickView(8)">
+        <article class="surface_glass border border_glass rounded-2xl overflow-hidden flex flex-col product-card-hover group relative cursor-pointer" data-product-id="READY-MASHALLAH-LAQUWATA" data-category="home-interior" data-selected-size="1 X 4 ft" data-banner-product="mashallah-laquwata" onclick="openQuickView(8)">
           <button class="absolute top-2 right-2 z-10 text-on-surface-variant hover:text-error transition-colors p-2 rounded-full surface_glass border border_glass/50" onclick="event.stopPropagation()">
             <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
           </button>
@@ -433,8 +418,8 @@
             </div>
             <div class="flex flex-col gap-2">
               <div class="flex items-baseline gap-2">
-                <span class="font-body-lg font-semibold text-primary" data-price-label>₹1,999</span>
-                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>2 X 1 ft</span>
+                <span class="font-body-lg font-semibold text-primary" data-price-label>₹4,999</span>
+                <span class="selected-size-pill font-label-sm text-on-surface-variant" data-selected-size-label>​1 X 4 ft</span>
               </div>
               <button class="w-full bg-surface-variant text-on-surface hover:bg-primary-container hover:text-[#0a0a0a] border border_glass font-label-md py-2 rounded-lg transition-colors flex items-center justify-center gap-2" onclick="event.stopPropagation(); toggleAdd(this)">
                 <span class="material-symbols-outlined text-[18px]">add</span>
@@ -515,32 +500,81 @@
         </div>
       </div>
     </section>
-<footer class="bg-surface-container-lowest py-12 border-t border-outline-variant/10">
-  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8">
-    <div class="col-span-1">
-      <div class="text-primary font-bold text-2xl tracking-tight mb-3">S S SIGN</div>
-      <p class="font-label-md text-on-surface-variant">© 2024 S S SIGN. Precision Crafted Signage & Decor.</p>
+<footer class="site-footer">
+    <div class="footer-glow-bar"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-10">
+
+        <!-- Main 4-column grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-14">
+
+            <!-- Brand Column -->
+            <div class="flex flex-col gap-4">
+                <a href="../index.html" class="footer-brand">S S SIGN</a>
+                <p class="footer-tagline">Precision crafted signage since 2001. Steel, acrylic, granite &amp; LED — for homes and businesses across Hyderabad.</p>
+                <div class="flex gap-3 mt-1 flex-wrap">
+                    <a href="https://www.instagram.com/sssign2001/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61593823746893" target="_blank" rel="noopener" aria-label="Facebook" class="footer-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5h3V5h-3c-3.1 0-5 1.9-5 5v2H6v3.5h3V22h4v-6.5h3.2l.8-3.5h-4v-2c0-1 .4-1.5 1-1.5Z"/></svg>
+                    </a>
+                    <a href="https://wa.me/918332099014" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.057 23.428a.75.75 0 0 0 .921.921l5.562-1.476A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.92 0-3.73-.504-5.29-1.385l-.38-.222-3.938 1.044 1.044-3.937-.222-.38A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                    </a>
+                    <a href="https://www.google.com/maps/dir/17.4701665,78.3662789/S+S+Sign,+Shop+No+19,+2-1%2F34,+Misri+Gunj+Rd,+Bandar+Bagh,+Misri+Gunj,+Shah+Ali+Banda,+Hyderabad,+Telangana+500053/@17.3952132,78.3293836,12z" target="_blank" rel="noopener" aria-label="Google Maps" class="footer-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="flex flex-col gap-3">
+                <p class="footer-col-heading">Quick Links</p>
+                <a class="footer-link" href="../index.html">🏠 Home</a>
+                <a class="footer-link" href="readymade.html">🛒 Readymade Products</a>
+                <a class="footer-link" href="../preview.html">🖼 Products Gallery</a>
+                <a class="footer-link" href="../estimator.html">📋 Request Quote</a>
+                <a class="footer-link" href="cart.html">🛍 Shopping Cart</a>
+            </div>
+
+            <!-- Products -->
+            <div class="flex flex-col gap-3">
+                <p class="footer-col-heading">Products</p>
+                <a class="footer-link" href="../index.html#residential">Steel Nameplates</a>
+                <a class="footer-link" href="../index.html#residential">Steel Letters</a>
+                <a class="footer-link" href="../index.html#residential">LED Sign Boards</a>
+                <a class="footer-link" href="../index.html#residential">Foundation Stones</a>
+                <a class="footer-link" href="../index.html#residential">Acrylic Nameplates</a>
+            </div>
+
+            <!-- Contact -->
+            <div class="flex flex-col gap-3">
+                <p class="footer-col-heading">Contact Us</p>
+                <div class="flex items-start gap-2 text-sm text-gray-400">
+                    <span class="mt-0.5 flex-shrink-0">📍</span>
+                    <span>Shop No 19, 2-1/34, Misri Gunj Rd, Bandar Bagh, Hyderabad, Telangana 500053</span>
+                </div>
+                <a href="tel:+918332099014" class="footer-link flex items-center gap-2">
+                    <span>📞</span> +91 83320 99014
+                </a>
+                <a href="https://wa.me/918332099014" target="_blank" rel="noopener" class="footer-link flex items-center gap-2">
+                    <span>💬</span> Chat on WhatsApp
+                </a>
+                <a href="https://www.google.com/maps/dir/17.4701665,78.3662789/S+S+Sign,+Shop+No+19,+2-1%2F34,+Misri+Gunj+Rd,+Bandar+Bagh,+Misri+Gunj,+Shah+Ali+Banda,+Hyderabad,+Telangana+500053/@17.3952132,78.3293836,12z" target="_blank" rel="noopener" class="footer-link flex items-center gap-2">
+                    <span>🗺</span> Get Directions
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom-bar">
+            <p>© 2001–2025 S S SIGN. All rights reserved.</p>
+            <p class="footer-bottom-sub">Handcrafted with precision in Hyderabad, Telangana 🇮🇳</p>
+        </div>
     </div>
-    <div class="flex flex-col gap-2.5">
-      <p class="font-label-md font-semibold text-on-surface mb-1">Quick Links</p>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../index.html">Home</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="readymade.html">Ready Made Products</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../preview.html">Products Gallery</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../estimator.html">Request Quote</a>
-    </div>
-    <div class="flex flex-col gap-2.5">
-      <p class="font-label-md font-semibold text-on-surface mb-1">Categories</p>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../index.html#residential">Residential Signage</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="../index.html#commercial">Commercial Signage</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="cart.html">Shopping Cart</a>
-    </div>
-    <div class="flex flex-col gap-2.5">
-      <p class="font-label-md font-semibold text-on-surface mb-1">Contact</p>
-      <p class="text-on-surface-variant font-label-md">Hyderabad, Telangana</p>
-      <a class="text-primary hover:underline transition-colors font-label-md" href="https://wa.me/918332099014" target="_blank" rel="noopener">+91 8332099014</a>
-    </div>
-  </div>
 </footer>
+
 <script>
         const THEME_KEY = 'sssign-theme';
         const themeToggle = document.getElementById('themeToggle');
@@ -700,11 +734,11 @@
             updateCartBadge();
         }
 
-        const DEFAULT_SIZE_PRICES = {
-            '2 X 1 ft': '₹1,999',
-            '3 X 1.5 ft': '₹2,999',
-            '4 X 2 ft': '₹3,699'
-        };
+        // const DEFAULT_SIZE_PRICES = {
+        //     '2 X 1 ft': '₹1,999',
+        //     '3 X 1.5 ft': '₹2,999',
+        //     '4 X 2 ft': '₹3,699'
+        // };
 
         const PRODUCT_CATALOG = {
             1: {
@@ -736,9 +770,9 @@
                     'Readymadephotos/3A-combo/IMG_20250307_235833.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹2,199',
-                    '3 X 1.5 ft': '₹3,199',
-                    '4 X 2 ft': '₹3,999'
+                    '1.5 X 1.5 ft': '₹7,999',
+                    '2 X 2 ft': '₹11,999',
+                    '2.5 X 2.5 ft': '₹17,999'
                 }
             },
             3: {
@@ -753,9 +787,9 @@
                     'Readymadephotos/3B-combo/IMG_20250510_132853.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹2,299',
-                    '3 X 1.5 ft': '₹3,299',
-                    '4 X 2 ft': '₹4,199'
+                    '1.5 X 1.5 ft': '₹8,999',
+                    '2 X 2 ft': '₹12,999',
+                    '2.5 X 2.5 ft': '₹18,999'
                 }
             },
             4: {
@@ -769,9 +803,9 @@
                     'Readymadephotos/3C-combo/IMG_20240430_215743.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹2,099',
-                    '3 X 1.5 ft': '₹3,099',
-                    '4 X 2 ft': '₹3,899'
+                    '1.5 X 1.5 ft': '₹9,999',
+                    '2 X 2 ft': '₹13,999',
+                    '2.5 X 2.5 ft': '₹18,999'
                 }
             },
             5: {
@@ -785,9 +819,9 @@
                     'Readymadephotos/Al-falaq/IMG_20231202_205439.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹1,899',
-                    '3 X 1.5 ft': '₹2,799',
-                    '4 X 2 ft': '₹3,499'
+                    '1.5 X 1.5 ft': '₹2,999',
+                    '2 X 2 ft': '₹4,400',
+                    '2.5 X 2.5 ft': '₹6,999'
                 }
             },
             6: {
@@ -802,9 +836,9 @@
                     'Readymadephotos/An-Nas%20Surah/IMG_20231202_205442.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹1,899',
-                    '3 X 1.5 ft': '₹2,799',
-                    '4 X 2 ft': '₹3,499'
+                    '1.5 X 1.5 ft': '₹2,999',
+                    '2 X 2 ft': '₹4,400',
+                    '2.5 X 2.5 ft': '₹6,999'
                 }
             },
             7: {
@@ -821,9 +855,9 @@
                     'Readymadephotos/Ayatul%20Kursi/IMG_20250307_235752.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹2,499',
-                    '3 X 1.5 ft': '₹3,499',
-                    '4 X 2 ft': '₹4,499'
+                    '1.5 X 1.5 ft': '₹2,999',
+                    '2 X 2 ft': '₹4,400',
+                    '2.5 X 2.5 ft': '₹6,999'
                 }
             },
             8: {
@@ -838,9 +872,7 @@
                     'Readymadephotos/Mashallah%20Laquwata/IMG_20241021_185131.jpg'
                 ],
                 pricesBySize: {
-                    '2 X 1 ft': '₹1,999',
-                    '3 X 1.5 ft': '₹2,999',
-                    '4 X 2 ft': '₹3,699'
+                    '1 X 4 ft': '₹4,999'
                 }
             },
             9: {
@@ -863,6 +895,7 @@
         let currentActiveProductId = 1;
         let bannerSelectedSize = '2 X 1 ft';
         let activeCategoryFilter = 'all';
+
 
         function getProductPrice(prod, size) {
             if (prod && prod.pricesBySize && prod.pricesBySize[size]) {
@@ -893,14 +926,20 @@
                 galleryEl.scrollLeft = 0;
             }
 
-            // Sync size chips with the product's current selected size
-            const card = document.querySelector('[data-product-id="' + prod.id + '"]') || document.querySelector('[data-banner-product="' + prod.key + '"]');
-            const initialSize = (card && card.dataset.selectedSize) ? card.dataset.selectedSize : '2 X 1 ft';
+            // Rebuild size chips from this product's actual sizes
+            const sizeContainer = document.getElementById('sampleSizeButtons');
+            const productSizes = prod.pricesBySize ? Object.keys(prod.pricesBySize) : ['2 X 1 ft'];
+            const cardForSize = document.querySelector('[data-product-id="' + prod.id + '"]');
+            const cardSize = cardForSize && cardForSize.dataset.selectedSize;
+            const initialSize = (cardSize && productSizes.includes(cardSize)) ? cardSize : productSizes[0];
             bannerSelectedSize = initialSize;
 
-            document.querySelectorAll('#sampleSizeButtons .size-chip').forEach(function (chip) {
-                chip.classList.toggle('active', chip.dataset.size === initialSize);
-            });
+            if (sizeContainer) {
+                sizeContainer.innerHTML = productSizes.map(function (sz) {
+                    const isActive = sz === initialSize ? ' active' : '';
+                    return '<button type="button" class="size-chip' + isActive + ' rounded-lg px-3 py-2 font-label-md text-on-surface" data-size="' + sz + '" onclick="selectSampleSize(\'' + sz + '\')">' + sz + '</button>';
+                }).join('');
+            }
 
             // Update banner price & size display
             const price = getProductPrice(prod, initialSize);
@@ -908,6 +947,7 @@
             const bannerSizeLabelEl = document.getElementById('bannerSizeLabel');
             if (bannerPriceEl) bannerPriceEl.textContent = price;
             if (bannerSizeLabelEl) bannerSizeLabelEl.textContent = initialSize;
+
 
             const banner = document.getElementById('productBanner');
             if (!banner) return;
