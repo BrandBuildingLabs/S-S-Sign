@@ -28,3 +28,175 @@ body.day-mode .moon-icon { opacity: 1; transform: translateX(0.75rem) rotate(0de
     45% { filter: brightness(1.35); }
     100% { filter: brightness(1); }
 }
+
+/* ═══════════════════════════════════════════
+   PHOTO GALLERY SLIDER
+═══════════════════════════════════════════ */
+.pg-section { margin-top: 2rem; width: 100%; max-width: 42rem; }
+.pg-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #f59e0b; margin-bottom: 0.6rem; }
+.pg-title { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
+
+/* Card wrapper */
+.pg-card {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow: 0 0 0 1px rgba(245,158,11,0.08), 0 24px 60px rgba(0,0,0,0.55);
+}
+
+/* Ambient glow behind the card */
+.pg-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1.4rem;
+    background: linear-gradient(135deg, rgba(245,158,11,0.18) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Image viewport */
+.pg-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #050505;
+}
+@media (max-width: 480px) { .pg-viewport { aspect-ratio: 1/1; } }
+
+/* Slide images */
+.pg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    transform: scale(1.04);
+    will-change: opacity, transform;
+}
+.pg-img.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+/* Gradient overlays */
+.pg-overlay-top {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 35%, transparent 65%, rgba(0,0,0,0.72) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Counter badge */
+.pg-counter {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    z-index: 4;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    color: rgba(255,255,255,0.88);
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.14);
+}
+
+/* Prev / Next arrow buttons */
+.pg-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(10,10,10,0.62);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    font-size: 1.1rem;
+    line-height: 1;
+    user-select: none;
+}
+.pg-arrow:hover { background: rgba(245,158,11,0.3); border-color: rgba(245,158,11,0.5); transform: translateY(-50%) scale(1.08); }
+.pg-arrow.prev { left: 0.75rem; }
+.pg-arrow.next { right: 0.75rem; }
+
+/* Bottom info strip */
+.pg-info {
+    padding: 0.9rem 1rem 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+/* Dot navigation */
+.pg-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    max-width: 70%;
+}
+.pg-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, width 0.25s;
+    flex-shrink: 0;
+}
+.pg-dot.active {
+    background: #f59e0b;
+    width: 1.35rem;
+}
+
+/* View all link */
+.pg-view-all {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #f59e0b;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+.pg-view-all:hover { opacity: 1; }
+
+/* Empty state */
+.pg-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 180px;
+    color: rgba(255,255,255,0.28);
+    font-size: 0.875rem;
+}
+
+/* Day mode overrides */
+body.day-mode .pg-card { background: rgba(255,255,255,0.78); border-color: rgba(0,0,0,0.1); box-shadow: 0 16px 48px rgba(0,0,0,0.14); }
+body.day-mode .pg-counter { background: rgba(0,0,0,0.42); }
+body.day-mode .pg-arrow { background: rgba(255,255,255,0.82); color: #111; border-color: rgba(0,0,0,0.12); }
+body.day-mode .pg-arrow:hover { background: rgba(245,158,11,0.15); }
+body.day-mode .pg-dot { background: rgba(0,0,0,0.18); }
+body.day-mode .pg-empty { color: rgba(0,0,0,0.3); }
