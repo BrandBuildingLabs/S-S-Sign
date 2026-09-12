@@ -192,6 +192,8 @@
                 .map(p => `<option value="${p.value}">${p.label}</option>`)
                 .join('');
             updateQuote();
+            // programmatic innerHTML change doesn't fire 'change', so call directly
+            if (typeof buildGallery === 'function') buildGallery(productInput.value);
         }
 
         function formatQuote(value) {
@@ -215,11 +217,20 @@
             createOwnPlate.href  = `miniCanvas.html?material=${encodeURIComponent(productInput.value)}&width=${encodeURIComponent(length)}&height=${encodeURIComponent(height)}&unit=${encodeURIComponent(unit)}`;
         }
 
+        // Material change → rebuild product list + update gallery
         materialInput.addEventListener('change', rebuildProducts);
-        [productInput, lengthInput, heightInput, unitInput].forEach(f => {
+
+        // Product change by user → update quote + gallery
+        productInput.addEventListener('change', () => {
+            updateQuote();
+            if (typeof buildGallery === 'function') buildGallery(productInput.value);
+        });
+
+        [lengthInput, heightInput, unitInput].forEach(f => {
             f.addEventListener('input', updateQuote);
             f.addEventListener('change', updateQuote);
         });
+
 
         // ── Gallery catalog (mirrors preview.html) ────────────────────────────
         const galleryCatalog = {
@@ -336,8 +347,6 @@
         pgViewport.addEventListener('mouseenter', () => clearInterval(pgTimer));
         pgViewport.addEventListener('mouseleave', pgStartAuto);
 
-        // Rebuild gallery whenever product changes
-        productInput.addEventListener('change', () => buildGallery(productInput.value));
 
         themeToggle.addEventListener('click', () => {
 
